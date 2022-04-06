@@ -149,7 +149,6 @@ public class TelaBuscarProdutos extends javax.swing.JFrame {
         
         try {
             lista = p1.buscarPorNome(busca);
-            ListIterator<Produto> iteraLista = lista.listIterator();
             
             for(int i=0; i<lista.size(); i++){
                Produto p2 = new Produto();
@@ -161,7 +160,6 @@ public class TelaBuscarProdutos extends javax.swing.JFrame {
                Object[] dados = {p2.getId() ,p2.getNome(), p2.getQuantidade(), p2.getValor(), p2.getDescricao()};
                modeloTabela.addRow(dados);
             }
-            
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Algo deu errado!");

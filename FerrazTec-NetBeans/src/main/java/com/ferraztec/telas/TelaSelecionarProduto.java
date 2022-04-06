@@ -4,6 +4,15 @@
  */
 package com.ferraztec.telas;
 
+import com.ferraztec.classes.Produto;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Aluno
@@ -13,6 +22,8 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
     /**
      * Creates new form TelaSaidaDeServico
      */
+    List<Produto> listaSelecionados = new ArrayList<Produto>();
+    
     public TelaSelecionarProduto() {
         initComponents();
     }
@@ -28,16 +39,16 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
 
         btnAvancar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tabelaProdutosSelecionados = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
-        jTextField2 = new javax.swing.JTextField();
+        tabelaProdutos = new javax.swing.JTable();
+        txtBuscar = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
+        btnSelecionar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jButton1 = new javax.swing.JButton();
+        spiQuantidade = new javax.swing.JSpinner();
+        btnExcluir = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -50,67 +61,47 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
             }
         });
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaProdutosSelecionados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Nome", "Quantidade", "Preço", "Descrição"
-            }
-        ));
-        jScrollPane3.setViewportView(jTable3);
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
             },
             new String [] {
-                "Nome", "Quantidade", "Preço", "Descrição"
+                "ID", "Nome", "Quantidade", "Preço", "Descrição"
             }
         ));
-        jScrollPane4.setViewportView(jTable4);
+        jScrollPane3.setViewportView(tabelaProdutosSelecionados);
+
+        tabelaProdutos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nome", "Quantidade", "Preço", "Descrição"
+            }
+        ));
+        jScrollPane4.setViewportView(tabelaProdutos);
 
         jLabel2.setText("Produto(s) Usado(s)");
 
-        jButton5.setText("Buscar");
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Selecionar");
+        btnSelecionar.setText("Selecionar");
+        btnSelecionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelecionarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Mudar Quantidade");
 
-        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        spiQuantidade.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
 
-        jButton1.setText("Excluir");
+        btnExcluir.setText("Excluir");
 
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -133,15 +124,15 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton5)))
+                                    .addComponent(btnBuscar)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnSelecionar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jSpinner1)
+                            .addComponent(spiQuantidade)
                             .addGap(424, 424, 424)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel1))
                 .addGap(64, 64, 64))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -158,17 +149,17 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar)
+                    .addComponent(btnSelecionar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnExcluir)
+                    .addComponent(spiQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
@@ -189,8 +180,70 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
 
     private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
         // TODO add your handling code here:
-        new TelaSaidaDeServico().setVisible(true);
+        new TelaSaidaDeServico(listaSelecionados).setVisible(true);
+        
     }//GEN-LAST:event_btnAvancarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        
+        DefaultTableModel modeloTabela = (DefaultTableModel) tabelaProdutos.getModel();
+        List<Produto> lista = new ArrayList<Produto>();
+        Produto p1 = new Produto();
+        
+        modeloTabela.setNumRows(0);
+        String busca = txtBuscar.getText();
+        
+        try {
+            lista = p1.buscarPorNome(busca);
+            
+            for(int i=0; i<lista.size(); i++){
+               Produto p2 = new Produto();
+               p2.setId(lista.get(i).getId());
+               p2.setNome(lista.get(i).getNome());
+               p2.setQuantidade(lista.get(i).getQuantidade());
+               p2.setValor(lista.get(i).getValor());
+               p2.setDescricao(lista.get(i).getDescricao());
+               Object[] dados = {p2.getId() ,p2.getNome(), p2.getQuantidade(), p2.getValor(), p2.getDescricao()};
+               modeloTabela.addRow(dados);
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Algo deu errado!");
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarActionPerformed
+        DefaultTableModel modeloTabelaSelecionados = (DefaultTableModel) tabelaProdutosSelecionados.getModel();
+        Produto p = new Produto();
+        List<Produto> listaSelecao = new ArrayList<>();
+        
+        p.setId((int) tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 0));
+        try {
+            p = p.buscarPorID(p.getId());
+            Object[] dados = {p.getId() ,p.getNome(), p.getQuantidade(), p.getValor(), p.getDescricao()};
+            modeloTabelaSelecionados.addRow(dados);
+            
+            for(int i=0; i<tabelaProdutosSelecionados.getRowCount(); i++){
+               Produto p2 = new Produto();
+               p2.setId((int) tabelaProdutosSelecionados.getValueAt(i, 0));
+               p2.setNome((String) tabelaProdutosSelecionados.getValueAt(i, 1));
+               p2.setQuantidade((int) tabelaProdutosSelecionados.getValueAt(i, 2));
+               p2.setValor((double) tabelaProdutosSelecionados.getValueAt(i, 3));
+               p2.setDescricao((String) tabelaProdutosSelecionados.getValueAt(i, 4));
+               // add for pra n deixar selecionar dois iguais
+               //antes ver se (quantidade != zero)
+               listaSelecao.add(p2);
+            }
+            
+            this.listaSelecionados = listaSelecao;
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Algo deu errado!");
+            ex.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_btnSelecionarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,17 +285,17 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvancar;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnSelecionar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JSpinner spiQuantidade;
+    private javax.swing.JTable tabelaProdutos;
+    private javax.swing.JTable tabelaProdutosSelecionados;
+    private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }
