@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="ferraztec" version="4">
+  <OBJECT>
+    <ID name="ferraztec" mc="Standard.Package" uid="9a1a2d46-e0ae-462d-8570-f76c70b419be"/>
+    <PID name="FerrazTec" mc="Standard.Project" uid="5add463b-e159-4bf5-a3f9-def215b0dd4c"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[ferraztec]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Produto" mc="Standard.Class" uid="c73b362d-b0db-4a91-8235-724c122a45a4"/>
+        <COMPID name="Conexao" mc="Standard.Class" uid="c856fa7a-0674-4809-ba81-824094ce19df"/>
+        <COMPID name="SaidaDeServico" mc="Standard.Class" uid="dd7711d3-5e68-4483-916f-d4f5c58532cb"/>
+        <COMPID name="Usuario" mc="Standard.Class" uid="11f03f1d-262b-45a8-83a5-9b96330f3311"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="ferraztec Class diagram" mc="Standard.ClassDiagram" uid="d6ebd7a0-f0d8-4079-a514-8e5204fa83cd"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="FerrazTec" version="4">
+  <OBJECT>
+    <ID name="FerrazTec" mc="Standard.Project" uid="5add463b-e159-4bf5-a3f9-def215b0dd4c"/>
+    <ATTRIBUTES>
+      <ATT name="ProjectContext"></ATT>
+      <ATT name="ProjectDescr"></ATT>
+      <ATT name="Name"><![CDATA[FerrazTec]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Model">
+        <COMPID name="ferraztec" mc="Standard.Package" uid="9a1a2d46-e0ae-462d-8570-f76c70b419be"/>
+      </COMP>
+      <COMP relation="DiagramRoot">
+        <COMPID name="FerrazTec" mc="Infrastructure.DiagramSet" uid="d9ba132d-1dd3-4769-9f73-d5e02200e53c"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
