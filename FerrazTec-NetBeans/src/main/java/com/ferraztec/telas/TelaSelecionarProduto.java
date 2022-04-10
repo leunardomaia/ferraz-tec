@@ -5,6 +5,7 @@
 package com.ferraztec.telas;
 
 import com.ferraztec.classes.Produto;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -115,11 +116,24 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnVoltar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAvancar)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(53, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(spiQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(424, 424, 424)
+                                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane4)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2)
@@ -128,24 +142,13 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(btnBuscar)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSelecionar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(spiQuantidade)
-                            .addGap(424, 424, 424)
-                            .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel1))
+                            .addComponent(btnSelecionar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(64, 64, 64))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(btnVoltar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAvancar)
-                .addGap(16, 16, 16))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -153,20 +156,20 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
                     .addComponent(btnBuscar)
                     .addComponent(btnSelecionar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnExcluir)
-                    .addComponent(spiQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spiQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExcluir))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar)
                     .addComponent(btnAvancar))
-                .addGap(15, 15, 15))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -187,43 +190,58 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         
+        try {
+            povoarTabela();
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Algo deu errado!");
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void povoarTabela() throws Exception{
+        
         DefaultTableModel modeloTabela = (DefaultTableModel) tabelaProdutos.getModel();
-        List<Produto> lista = new ArrayList<Produto>();
         Produto p1 = new Produto();
         
         modeloTabela.setNumRows(0);
         String busca = txtBuscar.getText();
         
-        try {
-            lista = p1.buscarPorNome(busca);
-            
-            for(int i=0; i<lista.size(); i++){
-               Produto p2 = new Produto();
-               p2.setId(lista.get(i).getId());
-               p2.setNome(lista.get(i).getNome());
-               p2.setQuantidade(lista.get(i).getQuantidade());
-               p2.setValor(lista.get(i).getValor());
-               p2.setDescricao(lista.get(i).getDescricao());
-               Object[] dados = {p2.getId() ,p2.getNome(), p2.getQuantidade(), p2.getValor(), p2.getDescricao()};
-               modeloTabela.addRow(dados);
-            }
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Algo deu errado!");
-            e.printStackTrace();
+        ResultSet rset = p1.buscarPorNome(busca);
+        
+        while (rset.next()){
+            modeloTabela.addRow(new Object[]{
+                rset.getInt(1),
+                rset.getString(2),
+                rset.getInt(4),
+                rset.getDouble(5),
+                rset.getString(3)
+            });
         }
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
+        rset.close();
+        
+    }
+    
     private void btnSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarActionPerformed
         DefaultTableModel modeloTabelaSelecionados = (DefaultTableModel) tabelaProdutosSelecionados.getModel();
         Produto p = new Produto();
         List<Produto> listaSelecao = new ArrayList<>();
         
+        
         p.setId((int) tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 0));
         try {
             p = p.buscarPorID(p.getId());
             Object[] dados = {p.getId() ,p.getNome(), p.getQuantidade(), p.getValor(), p.getDescricao()};
-            modeloTabelaSelecionados.addRow(dados);
+            int aceitar = 0;
+            for(int i = 0; i<tabelaProdutosSelecionados.getRowCount(); i++){
+                int idAnterior = (int) tabelaProdutosSelecionados.getValueAt(i, 0); 
+                if (p.getId() == idAnterior){
+                    aceitar++;
+                }
+            }
+            if(aceitar==0 && p.getQuantidade()>0){
+                modeloTabelaSelecionados.addRow(dados);
+            }
+            
             
             for(int i=0; i<tabelaProdutosSelecionados.getRowCount(); i++){
                Produto p2 = new Produto();
@@ -232,8 +250,6 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
                p2.setQuantidade((int) tabelaProdutosSelecionados.getValueAt(i, 2));
                p2.setValor((double) tabelaProdutosSelecionados.getValueAt(i, 3));
                p2.setDescricao((String) tabelaProdutosSelecionados.getValueAt(i, 4));
-               // add for pra n deixar selecionar dois iguais
-               //antes ver se (quantidade != zero)
                listaSelecao.add(p2);
             }
             

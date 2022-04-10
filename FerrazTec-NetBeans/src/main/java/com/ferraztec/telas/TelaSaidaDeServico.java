@@ -5,6 +5,7 @@
 package com.ferraztec.telas;
 
 import com.ferraztec.classes.Produto;
+import java.awt.Cursor;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
@@ -19,24 +20,26 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
     /**
      * Creates new form TelaSelecionarProduto
      */
+    private double totalSelecionados = 0; 
     private TelaSelecionarProduto telaSelecionarProduto;
     
     public TelaSaidaDeServico(List<Produto> listaSelecionados, TelaSelecionarProduto telaSelecionarProduto) {
         initComponents();
-        
         this.telaSelecionarProduto = telaSelecionarProduto;
-        DefaultTableModel modeloTabela = (DefaultTableModel) tabelaProdutos.getModel();
         
+        DefaultTableModel modeloTabela = (DefaultTableModel) tabelaProdutos.getModel();
         for(int i=0; i<listaSelecionados.size(); i++){
                Produto p2 = new Produto();
                p2.setId(listaSelecionados.get(i).getId());
                p2.setNome(listaSelecionados.get(i).getNome());
                p2.setQuantidade(listaSelecionados.get(i).getQuantidade());
                p2.setValor(listaSelecionados.get(i).getValor());
+               totalSelecionados += p2.getValor();
                p2.setDescricao(listaSelecionados.get(i).getDescricao());
                Object[] dados = {p2.getId() ,p2.getNome(), p2.getQuantidade(), p2.getValor(), p2.getDescricao()};
                modeloTabela.addRow(dados);
             }
+        lblTotal.setText("R$ "+Double.toString(totalSelecionados));
     }
 
     private TelaSaidaDeServico() {
@@ -57,7 +60,6 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaProdutos = new javax.swing.JTable();
-        txtValorServico = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnConfirmar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -65,6 +67,7 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtDescricaoServico = new javax.swing.JTextField();
         lblTotal = new javax.swing.JTextField();
+        txtValorServico = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("SAÍDA DE SERVIÇOS");
@@ -82,9 +85,6 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(tabelaProdutos);
-
-        txtValorServico.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtValorServico.setText("0");
 
         jLabel6.setText("Valor do Serviço");
 
@@ -109,7 +109,19 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
         lblTotal.setEditable(false);
         lblTotal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblTotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        lblTotal.setText("R$ 55,00");
+        lblTotal.setText("R$ 55.00");
+        lblTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lblTotalActionPerformed(evt);
+            }
+        });
+
+        txtValorServico.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtValorServico.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtValorServicoKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,20 +133,25 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel6)
-                                .addComponent(txtValorServico)))
+                        .addComponent(jScrollPane2)
                         .addComponent(txtDescricaoServico)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jLabel1)
                             .addGap(18, 18, 18)
-                            .addComponent(lblTotal))))
+                            .addComponent(lblTotal))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(156, 156, 156))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addGap(105, 105, 105))
+                                .addComponent(txtValorServico)))))
                 .addContainerGap(59, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(27, 27, 27)
@@ -146,21 +163,23 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtValorServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                        .addComponent(txtValorServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtDescricaoServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(86, 86, 86)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -168,7 +187,7 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar)
                     .addComponent(btnConfirmar))
@@ -190,6 +209,28 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
         telaSelecionarProduto.dispose();
         
     }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    private void txtValorServicoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorServicoKeyTyped
+        // TODO add your handling code here:
+        String caracteres = "0123456789.";
+        if (!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+        
+        if (!txtValorServico.getText().isEmpty()){
+            double total = (Double.valueOf(txtValorServico.getText()))+totalSelecionados;
+            System.out.println((Double.valueOf(txtValorServico.getText())));
+            //txtValorServico.setText(txtValorServico.getText());
+            lblTotal.setText("R$ "+Double.toString(total));
+        }else{
+            lblTotal.setText("R$ "+Double.toString(totalSelecionados));
+        }
+        
+    }//GEN-LAST:event_txtValorServicoKeyTyped
+
+    private void lblTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblTotalActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,9 +5,12 @@
 package com.ferraztec.telas;
 
 import com.ferraztec.classes.Produto;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
@@ -122,7 +125,7 @@ public class TelaBuscarProdutos extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
-
+    
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
         Produto p = new Produto();
@@ -138,35 +141,35 @@ public class TelaBuscarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
-        
+        try {
+            povoarTabela();
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Algo deu errado!");
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void povoarTabela() throws Exception{
         DefaultTableModel modeloTabela = (DefaultTableModel) tabelaProdutos.getModel();
-        List<Produto> lista = new ArrayList<Produto>();
         Produto p1 = new Produto();
         
         modeloTabela.setNumRows(0);
         String busca = txtBuscar.getText();
         
-        try {
-            lista = p1.buscarPorNome(busca);
-            
-            for(int i=0; i<lista.size(); i++){
-               Produto p2 = new Produto();
-               p2.setId(lista.get(i).getId());
-               p2.setNome(lista.get(i).getNome());
-               p2.setQuantidade(lista.get(i).getQuantidade());
-               p2.setValor(lista.get(i).getValor());
-               p2.setDescricao(lista.get(i).getDescricao());
-               Object[] dados = {p2.getId() ,p2.getNome(), p2.getQuantidade(), p2.getValor(), p2.getDescricao()};
-               modeloTabela.addRow(dados);
-            }
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Algo deu errado!");
-            e.printStackTrace();
+        ResultSet rset = p1.buscarPorNome(busca);
+        
+        while (rset.next()){
+            modeloTabela.addRow(new Object[]{
+                rset.getInt(1),
+                rset.getString(2),
+                rset.getInt(4),
+                rset.getDouble(5),
+                rset.getString(3)
+            });
         }
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
+        rset.close();
+        
+    }
     /**
      * @param args the command line arguments
      */

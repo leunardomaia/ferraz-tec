@@ -56,15 +56,12 @@ public class Produto {
     }
     
     
-    public List<Produto> buscarPorNome(String busca) throws Exception{
+    public ResultSet buscarPorNome(String busca) throws Exception{
         String sql = "SELECT * FROM produtos WHERE nome LIKE '%"+busca+"%'";
-        
-        List<Produto> lista = new ArrayList<Produto>();
         
         Connection conexao = null;
         PreparedStatement pstm = null;
         ResultSet rset = null;
-        
         
         try {
             conexao = Conexao.criarConexao();
@@ -72,31 +69,11 @@ public class Produto {
             
             rset = pstm.executeQuery();
             
-            
-            while(rset.next()){
-                Produto produto = new Produto();
-                produto.setId(rset.getInt("id"));
-                produto.setNome(rset.getString("nome"));
-                produto.setDescricao(rset.getString("descricao"));
-                produto.setQuantidade(rset.getInt("quantidade"));
-                produto.setValor(rset.getDouble("valor"));
-                lista.add(produto);
-            }
-            
+            return rset;
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            if(rset!=null){
-                rset.close();
-            }
-            if(pstm!=null){
-                pstm.close();
-            }
-            if (conexao!=null){
-                conexao.close();
-            }
         }
-        return lista;
+        return null;
     }
     
     public Produto buscarPorID(int id) throws Exception{
