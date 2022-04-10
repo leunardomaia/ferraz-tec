@@ -7,6 +7,7 @@ package com.ferraztec.telas;
 import com.ferraztec.classes.Produto;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,11 +19,12 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
     /**
      * Creates new form TelaSelecionarProduto
      */
+    private TelaSelecionarProduto telaSelecionarProduto;
     
-    
-    public TelaSaidaDeServico(List<Produto> listaSelecionados) {
+    public TelaSaidaDeServico(List<Produto> listaSelecionados, TelaSelecionarProduto telaSelecionarProduto) {
         initComponents();
         
+        this.telaSelecionarProduto = telaSelecionarProduto;
         DefaultTableModel modeloTabela = (DefaultTableModel) tabelaProdutos.getModel();
         
         for(int i=0; i<listaSelecionados.size(); i++){
@@ -62,7 +64,7 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
         btnVoltar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         txtDescricaoServico = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        lblTotal = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("SAÍDA DE SERVIÇOS");
@@ -76,12 +78,13 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Quantidade", "Preço", "Descrição"
+                "ID", "Nome", "Quantidade", "Preço", "Descrição"
             }
         ));
         jScrollPane2.setViewportView(tabelaProdutos);
 
         txtValorServico.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtValorServico.setText("0");
 
         jLabel6.setText("Valor do Serviço");
 
@@ -103,10 +106,10 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
 
         jLabel2.setText("Descrição do Serviço");
 
-        jTextField1.setEditable(false);
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField1.setText("R$ 55,00");
+        lblTotal.setEditable(false);
+        lblTotal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        lblTotal.setText("R$ 55,00");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,7 +134,7 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jLabel1)
                             .addGap(18, 18, 18)
-                            .addComponent(jTextField1))))
+                            .addComponent(lblTotal))))
                 .addContainerGap(59, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(27, 27, 27)
@@ -164,7 +167,7 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar)
@@ -184,6 +187,8 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
         // TODO add your handling code here:
         dispose();
+        telaSelecionarProduto.dispose();
+        
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     /**
@@ -237,7 +242,7 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField lblTotal;
     private javax.swing.JTable tabelaProdutos;
     private javax.swing.JTextField txtDescricaoServico;
     private javax.swing.JTextField txtNomeCliente;

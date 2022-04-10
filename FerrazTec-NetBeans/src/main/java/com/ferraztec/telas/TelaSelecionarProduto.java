@@ -180,7 +180,8 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
 
     private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
         // TODO add your handling code here:
-        new TelaSaidaDeServico(listaSelecionados).setVisible(true);
+        
+        new TelaSaidaDeServico(listaSelecionados, this).setVisible(true);
         
     }//GEN-LAST:event_btnAvancarActionPerformed
 
