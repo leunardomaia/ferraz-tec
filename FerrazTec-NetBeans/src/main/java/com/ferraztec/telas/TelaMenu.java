@@ -36,6 +36,7 @@ public class TelaMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MENU");
+        setResizable(false);
 
         btnCadastrar.setText("Cadastrar Produto");
         btnCadastrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

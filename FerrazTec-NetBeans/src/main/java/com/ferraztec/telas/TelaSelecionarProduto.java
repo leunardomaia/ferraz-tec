@@ -54,6 +54,7 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("SELECIONAR PRODUTOS");
+        setResizable(false);
 
         btnAvancar.setText("Avançar");
         btnAvancar.addActionListener(new java.awt.event.ActionListener() {

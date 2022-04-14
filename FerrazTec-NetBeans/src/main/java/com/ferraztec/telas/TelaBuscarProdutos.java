@@ -47,6 +47,7 @@ public class TelaBuscarProdutos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("BUSCAR PRODUTOS");
+        setResizable(false);
 
         jLabel1.setText("Nome do Produto");
 

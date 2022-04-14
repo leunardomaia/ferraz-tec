@@ -34,7 +34,7 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
                p2.setNome(listaSelecionados.get(i).getNome());
                p2.setQuantidade(listaSelecionados.get(i).getQuantidade());
                p2.setValor(listaSelecionados.get(i).getValor());
-               totalSelecionados += p2.getValor();
+               totalSelecionados += (p2.getValor()*p2.getQuantidade());
                p2.setDescricao(listaSelecionados.get(i).getDescricao());
                Object[] dados = {p2.getId() ,p2.getNome(), p2.getQuantidade(), p2.getValor(), p2.getDescricao()};
                modeloTabela.addRow(dados);
@@ -71,6 +71,7 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("SAÍDA DE SERVIÇOS");
+        setResizable(false);
 
         jLabel4.setText("Nome do Cliente");
 
@@ -118,6 +119,9 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
 
         txtValorServico.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtValorServico.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtValorServicoKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtValorServicoKeyTyped(evt);
             }
@@ -216,21 +220,21 @@ public class TelaSaidaDeServico extends javax.swing.JFrame {
         if (!caracteres.contains(evt.getKeyChar()+"")){
             evt.consume();
         }
-        
-        if (!txtValorServico.getText().isEmpty()){
-            double total = (Double.valueOf(txtValorServico.getText()))+totalSelecionados;
-            System.out.println((Double.valueOf(txtValorServico.getText())));
-            //txtValorServico.setText(txtValorServico.getText());
-            lblTotal.setText("R$ "+Double.toString(total));
-        }else{
-            lblTotal.setText("R$ "+Double.toString(totalSelecionados));
-        }
-        
     }//GEN-LAST:event_txtValorServicoKeyTyped
 
     private void lblTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lblTotalActionPerformed
+
+    private void txtValorServicoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorServicoKeyReleased
+        // TODO add your handling code here:
+         if (!txtValorServico.getText().isEmpty()){
+            double total = (Double.valueOf(txtValorServico.getText()))+totalSelecionados;
+            lblTotal.setText("R$ "+Double.toString(total));
+        }else{
+            lblTotal.setText("R$ "+Double.toString(totalSelecionados));
+        }
+    }//GEN-LAST:event_txtValorServicoKeyReleased
 
     /**
      * @param args the command line arguments
