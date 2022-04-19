@@ -21,7 +21,7 @@ public class Usuario {
     private String senha;
     
     // Métodos
-    public void cadastrar() throws Exception{
+    public boolean cadastrar() throws Exception{
         String sql = "INSERT INTO usuarios (nome_completo, usuario, telefone, email, senha) VALUES (?, ?, ?, ?, ?)";
         Connection conexao = null;
         PreparedStatement pstm = null;
@@ -37,9 +37,10 @@ public class Usuario {
             pstm.setString(5, this.getSenha());
             
             pstm.executeUpdate();
-            
+            return true;
         } catch (Exception ex) {
             ex.printStackTrace();
+            return false;
         } finally{
             if(pstm!=null){
                 pstm.close();
@@ -50,7 +51,11 @@ public class Usuario {
         }
         
     }
-
+    
+    public void buscar(){
+        
+    } 
+            
     public int getId() {
         return id;
     }

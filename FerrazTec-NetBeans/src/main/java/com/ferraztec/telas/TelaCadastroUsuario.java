@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /**
  *
@@ -166,31 +168,49 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private boolean estaVazio(JTextField campo) {
+        return campo.getText() == null || campo.getText().trim().isEmpty();
+    }
+    private boolean passwordEstaVazio(JPasswordField campo) {
+        String password = new String(txtSenha.getPassword());
+        return password.trim().isEmpty();
+    }
+    
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         
         Usuario usuario = new Usuario();
         
-        if(Arrays.toString(txtSenha.getPassword()).equals(Arrays.toString(txtConfirmarSenha.getPassword()))){
-            usuario.setNomeCompleto(txtNomeCompleto.getText());
-            usuario.setUsuario(txtUsuario.getText());
-            usuario.setTelefone(txtTelefone.getText());
-            usuario.setEmail(txtEmail.getText());
-            usuario.setSenha(Arrays.toString(txtSenha.getPassword()));
+        if(estaVazio(txtNomeCompleto) || estaVazio(txtUsuario) || estaVazio(txtTelefone) || estaVazio(txtEmail) || passwordEstaVazio(txtSenha)){
+            JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos!");
+        }else{
+            if(Arrays.toString(txtSenha.getPassword()).equals(Arrays.toString(txtConfirmarSenha.getPassword()))){
+                usuario.setNomeCompleto(txtNomeCompleto.getText());
+                usuario.setUsuario(txtUsuario.getText());
+                usuario.setTelefone(txtTelefone.getText());
+                usuario.setEmail(txtEmail.getText());
+                usuario.setSenha(new String(txtSenha.getPassword()));
             
             try {
-                usuario.cadastrar();
-                JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
-                dispose();
+                boolean sucesso = usuario.cadastrar();
+                if(sucesso){
+                    JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
+                    dispose();
+                }else{
+                    JOptionPane.showMessageDialog(this, "Algo deu errado!");
+                }
             } catch (Exception ex) {
-                Logger.getLogger(TelaCadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                ex.printStackTrace();
                 JOptionPane.showMessageDialog(this, "Algo deu errado!");
             }
             
-        }else{
-            JOptionPane.showMessageDialog(this, "Senhas diferentes!");
+            }else{
+                JOptionPane.showMessageDialog(this, "Senhas diferentes!");
+            }
+            
         }
+
         
         
         
