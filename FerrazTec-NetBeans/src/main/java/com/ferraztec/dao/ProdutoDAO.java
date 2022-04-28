@@ -2,31 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.ferraztec.classes;
+package com.ferraztec.dao;
 
-
+import com.ferraztec.dto.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
- * @author Leonardo
+ * @author aluno
  */
-public class Produto {
+public class ProdutoDAO {
     
-    // Atributos
-    private int id;
-    private String nome;
-    private String descricao;
-    private int quantidade;
-    private double valor;
-    
-    // Métodos
-    public void cadastrar() throws Exception{
+    public void cadastrar(Produto produto) throws Exception{
         String sql = "INSERT INTO produtos (nome, descricao, quantidade, valor) VALUES (?, ?, ?, ?)";
         Connection conexao = null;
         PreparedStatement pstm = null;
@@ -36,10 +25,10 @@ public class Produto {
             conexao = Conexao.criarConexao();
             pstm = conexao.prepareStatement(sql);
 
-            pstm.setString(1, this.getNome());
-            pstm.setString(2, this.getDescricao());
-            pstm.setInt(3, this.getQuantidade());
-            pstm.setDouble(4, this.getValor());
+            pstm.setString(1, produto.getNome());
+            pstm.setString(2, produto.getDescricao());
+            pstm.setInt(3, produto.getQuantidade());
+            pstm.setDouble(4, produto.getValor());
 
             pstm.executeUpdate();
       
@@ -118,7 +107,7 @@ public class Produto {
         return p;
     }
     
-    public void editar() throws Exception{
+    public void editar(Produto produto) throws Exception{
         String sql = "UPDATE produtos SET nome = ?, descricao = ?, quantidade = ?, valor = ? WHERE id = ?";
         Connection conexao = null;
         PreparedStatement pstm = null;
@@ -128,11 +117,11 @@ public class Produto {
             conexao = Conexao.criarConexao();
             pstm = conexao.prepareStatement(sql);
 
-            pstm.setString(1, this.getNome());
-            pstm.setString(2, this.getDescricao());
-            pstm.setInt(3, this.getQuantidade());
-            pstm.setDouble(4, this.getValor());
-            pstm.setInt(5, this.getId());
+            pstm.setString(1, produto.getNome());
+            pstm.setString(2, produto.getDescricao());
+            pstm.setInt(3, produto.getQuantidade());
+            pstm.setDouble(4, produto.getValor());
+            pstm.setInt(5, produto.getId());
 
             pstm.executeUpdate();
       
@@ -146,47 +135,6 @@ public class Produto {
                 conexao.close();
             }
         }
-    }
-    
-    // Getters and Setters
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
     }
     
 }

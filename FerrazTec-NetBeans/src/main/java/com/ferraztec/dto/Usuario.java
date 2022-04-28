@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.ferraztec.classes;
+package com.ferraztec.dto;
 
+import com.ferraztec.dao.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 /**
@@ -55,7 +56,8 @@ public class Usuario {
     public void buscar(){
         
     } 
-            
+    
+    //Getters and Setters
     public int getId() {
         return id;
     }

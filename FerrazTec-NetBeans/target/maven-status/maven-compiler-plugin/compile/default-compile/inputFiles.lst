@@ -1,8 +1,12 @@
-C:\Users\Leonardo\Desktop\FERRAZ TEC SOFTWARE\FerrazTec\src\main\java\com\mycompany\ferraztec\TelaMenu.java
-C:\Users\Leonardo\Desktop\FERRAZ TEC SOFTWARE\FerrazTec\src\main\java\com\mycompany\ferraztec\TelaLogin.java
-C:\Users\Leonardo\Desktop\FERRAZ TEC SOFTWARE\FerrazTec\src\main\java\com\mycompany\ferraztec\TelaCadastroUsuario.java
-C:\Users\Leonardo\Desktop\FERRAZ TEC SOFTWARE\FerrazTec\src\main\java\com\mycompany\ferraztec\TelaEditar.java
-C:\Users\Leonardo\Desktop\FERRAZ TEC SOFTWARE\FerrazTec\src\main\java\com\mycompany\ferraztec\TelaSaidaProdutos.java
-C:\Users\Leonardo\Desktop\FERRAZ TEC SOFTWARE\FerrazTec\src\main\java\com\mycompany\ferraztec\TelaCadastroProdutos.java
-C:\Users\Leonardo\Desktop\FERRAZ TEC SOFTWARE\FerrazTec\src\main\java\com\mycompany\ferraztec\TelaSelecionaProduto.java
-C:\Users\Leonardo\Desktop\FERRAZ TEC SOFTWARE\FerrazTec\src\main\java\com\mycompany\ferraztec\TelaBuscarProdutos.java
+/home/aluno/Documentos/GitHub/ferraz-tec/FerrazTec-NetBeans/src/main/java/com/ferraztec/dto/Produto.java
+/home/aluno/Documentos/GitHub/ferraz-tec/FerrazTec-NetBeans/src/main/java/com/ferraztec/telas/TelaLogin.java
+/home/aluno/Documentos/GitHub/ferraz-tec/FerrazTec-NetBeans/src/main/java/com/ferraztec/dto/SaidaDeServico.java
+/home/aluno/Documentos/GitHub/ferraz-tec/FerrazTec-NetBeans/src/main/java/com/ferraztec/dto/Conexao.java
+/home/aluno/Documentos/GitHub/ferraz-tec/FerrazTec-NetBeans/src/main/java/com/ferraztec/telas/TelaSaidaDeServico.java
+/home/aluno/Documentos/GitHub/ferraz-tec/FerrazTec-NetBeans/src/main/java/com/ferraztec/telas/TelaCadastroUsuario.java
+/home/aluno/Documentos/GitHub/ferraz-tec/FerrazTec-NetBeans/src/main/java/com/ferraztec/telas/TelaCadastroProdutos.java
+/home/aluno/Documentos/GitHub/ferraz-tec/FerrazTec-NetBeans/src/main/java/com/ferraztec/telas/TelaMenu.java
+/home/aluno/Documentos/GitHub/ferraz-tec/FerrazTec-NetBeans/src/main/java/com/ferraztec/telas/TelaBuscarProdutos.java
+/home/aluno/Documentos/GitHub/ferraz-tec/FerrazTec-NetBeans/src/main/java/com/ferraztec/telas/TelaSelecionarProduto.java
+/home/aluno/Documentos/GitHub/ferraz-tec/FerrazTec-NetBeans/src/main/java/com/ferraztec/telas/TelaEditarProdutos.java
+/home/aluno/Documentos/GitHub/ferraz-tec/FerrazTec-NetBeans/src/main/java/com/ferraztec/dto/Usuario.java

@@ -4,7 +4,7 @@
  */
 package com.ferraztec.telas;
 
-import com.ferraztec.classes.Usuario;
+import com.ferraztec.dto.Usuario;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;

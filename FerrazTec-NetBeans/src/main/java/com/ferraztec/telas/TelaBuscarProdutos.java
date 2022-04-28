@@ -4,7 +4,7 @@
  */
 package com.ferraztec.telas;
 
-import com.ferraztec.classes.Produto;
+import com.ferraztec.dto.Produto;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;

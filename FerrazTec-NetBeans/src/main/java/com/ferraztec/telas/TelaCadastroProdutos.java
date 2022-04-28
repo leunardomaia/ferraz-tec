@@ -4,7 +4,8 @@
  */
 package com.ferraztec.telas;
 
-import com.ferraztec.classes.Produto;
+import com.ferraztec.dao.ProdutoDAO;
+import com.ferraztec.dto.Produto;
 import javax.swing.JOptionPane;
 
 /**
@@ -137,12 +138,13 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         Produto p = new Produto();
+        ProdutoDAO dao = new ProdutoDAO();
         try {
             p.setNome(txtNome.getText());
             p.setDescricao(txtDescricao.getText());
             p.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
             p.setValor(Double.parseDouble(txtPreco.getText()));
-            p.cadastrar();
+            dao.cadastrar(p);
             JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
             dispose();
         } catch (Exception e) {

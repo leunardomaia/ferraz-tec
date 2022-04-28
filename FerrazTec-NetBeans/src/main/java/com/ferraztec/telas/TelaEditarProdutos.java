@@ -4,7 +4,7 @@
  */
 package com.ferraztec.telas;
 
-import com.ferraztec.classes.Produto;
+import com.ferraztec.dto.Produto;
 import javax.swing.JOptionPane;
 
 /**
