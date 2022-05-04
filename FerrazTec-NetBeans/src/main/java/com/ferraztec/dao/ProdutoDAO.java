@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.ferraztec.dao;
 
 import com.ferraztec.dto.Produto;
@@ -9,14 +5,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-/**
- *
- * @author aluno
- */
 public class ProdutoDAO {
     
     public void cadastrar(Produto produto) throws Exception{
-        String sql = "INSERT INTO produtos (nome, descricao, quantidade, valor) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO produtos (nome, descricao, quantidade, preco) VALUES (?, ?, ?, ?)";
         Connection conexao = null;
         PreparedStatement pstm = null;
         
@@ -45,7 +37,7 @@ public class ProdutoDAO {
     }
     
     
-    public ResultSet buscarPorNome(String busca) throws Exception{
+    public ResultSet buscarPorNome(Produto produto, String busca) throws Exception{
         String sql = "SELECT * FROM produtos WHERE nome LIKE '%"+busca+"%'";
         
         Connection conexao = null;
@@ -108,7 +100,7 @@ public class ProdutoDAO {
     }
     
     public void editar(Produto produto) throws Exception{
-        String sql = "UPDATE produtos SET nome = ?, descricao = ?, quantidade = ?, valor = ? WHERE id = ?";
+        String sql = "UPDATE produtos SET nome = ?, descricao = ?, quantidade = ?, preco = ? WHERE id = ?";
         Connection conexao = null;
         PreparedStatement pstm = null;
         

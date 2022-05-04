@@ -4,6 +4,7 @@
  */
 package com.ferraztec.telas;
 
+import com.ferraztec.dao.ProdutoDAO;
 import com.ferraztec.dto.Produto;
 import javax.swing.JOptionPane;
 
@@ -22,7 +23,8 @@ public class TelaEditarProdutos extends javax.swing.JFrame {
         initComponents();
         try{
             Produto p = new Produto();
-            p = p.buscarPorID(idProduto);
+            ProdutoDAO dao = new ProdutoDAO();
+            p = dao.buscarPorID(idProduto);
             txtNome.setText(p.getNome());
             txtPreco.setText(Double.toString(p.getValor()));
             txtQuantidade.setText(Integer.toString(p.getQuantidade()));
@@ -158,13 +160,14 @@ public class TelaEditarProdutos extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         Produto p = new Produto();
+        ProdutoDAO dao = new ProdutoDAO();
         p.setId(idProduto);
         p.setNome(txtNome.getText());
         p.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
         p.setValor(Double.parseDouble(txtPreco.getText()));
         p.setDescricao(txtDescricao.getText());
         try{
-        p.editar();
+        dao.editar(p);
         dispose();
         }catch(Exception e){
              JOptionPane.showMessageDialog(this, "Algo deu errado!");

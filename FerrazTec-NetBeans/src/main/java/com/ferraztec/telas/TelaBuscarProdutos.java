@@ -1,29 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.ferraztec.telas;
 
+import com.ferraztec.dao.ProdutoDAO;
 import com.ferraztec.dto.Produto;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Aluno
- */
 public class TelaBuscarProdutos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaBuscarProdutos
-     */
+
     public TelaBuscarProdutos() {
         initComponents();
     }
@@ -153,11 +138,12 @@ public class TelaBuscarProdutos extends javax.swing.JFrame {
     private void povoarTabela() throws Exception{
         DefaultTableModel modeloTabela = (DefaultTableModel) tabelaProdutos.getModel();
         Produto p1 = new Produto();
+        ProdutoDAO dao = new ProdutoDAO();
         
         modeloTabela.setNumRows(0);
         String busca = txtBuscar.getText();
         
-        ResultSet rset = p1.buscarPorNome(busca);
+        ResultSet rset = dao.buscarPorNome(p1, busca);
         
         while (rset.next()){
             modeloTabela.addRow(new Object[]{
