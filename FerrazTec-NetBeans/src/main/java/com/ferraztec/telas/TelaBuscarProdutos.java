@@ -137,13 +137,12 @@ public class TelaBuscarProdutos extends javax.swing.JFrame {
 
     private void povoarTabela() throws Exception{
         DefaultTableModel modeloTabela = (DefaultTableModel) tabelaProdutos.getModel();
-        Produto p1 = new Produto();
         ProdutoDAO dao = new ProdutoDAO();
         
         modeloTabela.setNumRows(0);
         String busca = txtBuscar.getText();
         
-        ResultSet rset = dao.buscarPorNome(p1, busca);
+        ResultSet rset = dao.buscarPorNome(busca);
         
         while (rset.next()){
             modeloTabela.addRow(new Object[]{

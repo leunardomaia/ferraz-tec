@@ -37,7 +37,7 @@ public class ProdutoDAO {
     }
     
     
-    public ResultSet buscarPorNome(Produto produto, String busca) throws Exception{
+    public ResultSet buscarPorNome(String busca) throws Exception{
         String sql = "SELECT * FROM produtos WHERE nome LIKE '%"+busca+"%'";
         
         Connection conexao = null;
