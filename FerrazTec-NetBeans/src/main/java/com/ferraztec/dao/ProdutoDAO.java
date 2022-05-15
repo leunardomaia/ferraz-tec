@@ -1,5 +1,6 @@
 package com.ferraztec.dao;
 
+import com.ferraztec.conexao.Conexao;
 import com.ferraztec.dto.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

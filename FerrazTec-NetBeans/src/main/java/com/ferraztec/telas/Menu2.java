@@ -1,5 +1,6 @@
-
 package com.ferraztec.telas;
+
+
 
 import javax.swing.JFrame;
 
@@ -7,6 +8,7 @@ public class Menu2 extends javax.swing.JFrame {
 
     public Menu2() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -18,23 +20,79 @@ public class Menu2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        menuBar1 = new java.awt.MenuBar();
+        menu1 = new java.awt.Menu();
+        menu2 = new java.awt.Menu();
+        jToolBar2 = new javax.swing.JToolBar();
+        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jSeparator4 = new javax.swing.JPopupMenu.Separator();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMenu4 = new javax.swing.JMenu();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenu5 = new javax.swing.JMenu();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
 
-        jButton2.setText("jButton2");
+        menu1.setLabel("File");
+        menu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu1ActionPerformed(evt);
+            }
+        });
+        menuBar1.add(menu1);
+
+        menu2.setLabel("Edit");
+        menu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu2ActionPerformed(evt);
+            }
+        });
+        menuBar1.add(menu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("MENU");
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setTitle("FERRAZTEC");
         setResizable(false);
+
+        jToolBar2.setRollover(true);
+
+        jButton1.setText("Sair");
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jToolBar2.add(jButton1);
+
+        jButton2.setText("Entrar");
+        jButton2.setFocusable(false);
+        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jToolBar2.add(jButton2);
+
+        jButton3.setText("BOTAO");
+        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\GitHub\\ferraz-tec\\FerrazTec-NetBeans\\src\\main\\java\\images\\teste.png")); // NOI18N
 
         jMenu1.setText("Produto");
         jMenu1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
@@ -59,6 +117,7 @@ public class Menu2 extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMenuItem2);
+        jMenu2.add(jSeparator4);
 
         jMenuBar1.add(jMenu2);
 
@@ -67,15 +126,24 @@ public class Menu2 extends javax.swing.JFrame {
 
         jMenuItem3.setText("Cadastrar");
         jMenu3.add(jMenuItem3);
+        jMenu3.add(jSeparator3);
 
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Vendas");
         jMenu4.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        jMenu4.add(jSeparator1);
+
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Serviços");
         jMenu5.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        jMenu5.add(jSeparator2);
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("ESCOLHA");
+        jMenu5.add(jCheckBoxMenuItem1);
+
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
@@ -84,12 +152,28 @@ public class Menu2 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 477, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(360, 360, 360)
+                        .addComponent(jButton3))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1790, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(jToolBar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1920, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 271, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(jButton3))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1440, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
+
+        getAccessibleContext().setAccessibleDescription("SISTEMA DE CONTROLE DE ESTOQUE");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -101,6 +185,22 @@ public class Menu2 extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void menu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menu2ActionPerformed
+
+    private void menu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menu1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,7 +238,11 @@ public class Menu2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -148,5 +252,13 @@ public class Menu2 extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JPopupMenu.Separator jSeparator4;
+    private javax.swing.JToolBar jToolBar2;
+    private java.awt.Menu menu1;
+    private java.awt.Menu menu2;
+    private java.awt.MenuBar menuBar1;
     // End of variables declaration//GEN-END:variables
 }

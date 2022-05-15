@@ -1,16 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.ferraztec.dto;
 
-import com.ferraztec.dao.Conexao;
+import com.ferraztec.conexao.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-/**
- *
- * @author Leonardo
- */
+
 public class Usuario {
     
     // Atributos
@@ -18,44 +11,10 @@ public class Usuario {
     private String nomeCompleto;
     private String usuario;
     private String telefone;
+    private String cpf;
     private String email;
     private String senha;
     
-    // Métodos
-    public boolean cadastrar() throws Exception{
-        String sql = "INSERT INTO usuarios (nome_completo, usuario, telefone, email, senha) VALUES (?, ?, ?, ?, ?)";
-        Connection conexao = null;
-        PreparedStatement pstm = null;
-        
-        try {
-            conexao = Conexao.criarConexao();
-            pstm = conexao.prepareStatement(sql);
-            
-            pstm.setString(1, this.getNomeCompleto());
-            pstm.setString(2, this.getUsuario());
-            pstm.setString(3, this.getTelefone());
-            pstm.setString(4, this.getEmail());
-            pstm.setString(5, this.getSenha());
-            
-            pstm.executeUpdate();
-            return true;
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return false;
-        } finally{
-            if(pstm!=null){
-                pstm.close();
-            }
-            if(conexao!=null){
-                conexao.close();
-            }
-        }
-        
-    }
-    
-    public void buscar(){
-        
-    } 
     
     //Getters and Setters
     public int getId() {

@@ -1,4 +1,4 @@
-package com.ferraztec.dao;
+package com.ferraztec.conexao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.ferraztec.telas;
 
+import com.ferraztec.dao.UsuarioDAO;
 import com.ferraztec.dto.Usuario;
 import java.util.Arrays;
 import java.util.logging.Level;
@@ -12,10 +9,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Aluno
- */
 public class TelaCadastroUsuario extends javax.swing.JFrame {
 
     /**
@@ -180,6 +173,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         
+        UsuarioDAO dao = new UsuarioDAO();
         Usuario usuario = new Usuario();
         
         if(estaVazio(txtNomeCompleto) || estaVazio(txtUsuario) || estaVazio(txtTelefone) || estaVazio(txtEmail) || passwordEstaVazio(txtSenha)){
@@ -193,7 +187,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 usuario.setSenha(new String(txtSenha.getPassword()));
             
             try {
-                boolean sucesso = usuario.cadastrar();
+                boolean sucesso = dao.cadastrar(usuario);
                 if(sucesso){
                     JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
                     dispose();
