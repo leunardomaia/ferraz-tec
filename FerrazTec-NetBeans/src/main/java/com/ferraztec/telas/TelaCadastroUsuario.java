@@ -30,7 +30,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtNomeCompleto = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtUsuario = new javax.swing.JTextField();
+        txtLogin = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtTelefone = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
@@ -55,12 +55,12 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Usuário");
+        jLabel2.setText("Login");
 
-        txtUsuario.setToolTipText("");
-        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+        txtLogin.setToolTipText("");
+        txtLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsuarioActionPerformed(evt);
+                txtLoginActionPerformed(evt);
             }
         });
 
@@ -111,7 +111,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addGap(101, 101, 101)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,7 +134,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(6, 6, 6)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addGap(6, 6, 6)
@@ -176,12 +176,12 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         UsuarioDAO dao = new UsuarioDAO();
         Usuario usuario = new Usuario();
         
-        if(estaVazio(txtNomeCompleto) || estaVazio(txtUsuario) || estaVazio(txtTelefone) || estaVazio(txtEmail) || passwordEstaVazio(txtSenha)){
+        if(estaVazio(txtNomeCompleto) || estaVazio(txtLogin) || estaVazio(txtTelefone) || estaVazio(txtEmail) || passwordEstaVazio(txtSenha)){
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos!");
         }else{
             if(Arrays.toString(txtSenha.getPassword()).equals(Arrays.toString(txtConfirmarSenha.getPassword()))){
                 usuario.setNomeCompleto(txtNomeCompleto.getText());
-                usuario.setUsuario(txtUsuario.getText());
+                usuario.setLogin(txtLogin.getText());
                 usuario.setTelefone(txtTelefone.getText());
                 usuario.setEmail(txtEmail.getText());
                 usuario.setSenha(new String(txtSenha.getPassword()));
@@ -214,9 +214,9 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeCompletoActionPerformed
 
-    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsuarioActionPerformed
+    }//GEN-LAST:event_txtLoginActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         // TODO add your handling code here:
@@ -273,9 +273,9 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPasswordField txtConfirmarSenha;
     private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtNomeCompleto;
     private javax.swing.JPasswordField txtSenha;
     private javax.swing.JTextField txtTelefone;
-    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

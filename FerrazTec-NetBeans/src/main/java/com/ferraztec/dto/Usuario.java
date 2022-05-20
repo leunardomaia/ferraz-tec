@@ -1,15 +1,11 @@
 package com.ferraztec.dto;
 
-import com.ferraztec.conexao.Conexao;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-
 public class Usuario {
     
     // Atributos
     private int id;
     private String nomeCompleto;
-    private String usuario;
+    private String login;
     private String telefone;
     private String cpf;
     private String email;
@@ -33,12 +29,12 @@ public class Usuario {
         this.nomeCompleto = nomeCompleto;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getLogin() {
+        return login;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getTelefone() {

@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 public class TelaSelecionarProduto extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaSaidaDeServico
+     * Creates new form TelaAtendimento
      */
     List<Produto> listaSelecionados = new ArrayList<Produto>();
     
@@ -28,7 +28,7 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnAvancar = new javax.swing.JButton();
+        btnOk = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabelaProdutosSelecionados = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -46,10 +46,10 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
         setTitle("SELECIONAR PRODUTOS");
         setResizable(false);
 
-        btnAvancar.setText("Avançar");
-        btnAvancar.addActionListener(new java.awt.event.ActionListener() {
+        btnOk.setText("OK");
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAvancarActionPerformed(evt);
+                btnOkActionPerformed(evt);
             }
         });
 
@@ -107,13 +107,13 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addComponent(btnVoltar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAvancar)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(53, Short.MAX_VALUE)
+                .addComponent(btnOk)
+                .addGap(18, 18, 18))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(92, 92, 92)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -134,12 +134,12 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
                                     .addComponent(btnBuscar)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnSelecionar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(64, 64, 64))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(45, 45, 45)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -148,7 +148,7 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
                     .addComponent(btnSelecionar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
+                .addGap(45, 45, 45)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -159,8 +159,8 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar)
-                    .addComponent(btnAvancar))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addComponent(btnOk))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -172,12 +172,12 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-    private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
+    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         // TODO add your handling code here:
         
-        new TelaSaidaDeServico(listaSelecionados, this).setVisible(true);
+        new TelaAtendimento(listaSelecionados, this).setVisible(true);
         
-    }//GEN-LAST:event_btnAvancarActionPerformed
+    }//GEN-LAST:event_btnOkActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         
@@ -293,9 +293,9 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAvancar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnOk;
     private javax.swing.JButton btnSelecionar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
