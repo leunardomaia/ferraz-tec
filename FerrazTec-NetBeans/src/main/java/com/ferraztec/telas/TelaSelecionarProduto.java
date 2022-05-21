@@ -28,7 +28,7 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnOk = new javax.swing.JButton();
+        btnAvancar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabelaProdutosSelecionados = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -46,10 +46,10 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
         setTitle("SELECIONAR PRODUTOS");
         setResizable(false);
 
-        btnOk.setText("OK");
-        btnOk.addActionListener(new java.awt.event.ActionListener() {
+        btnAvancar.setText("Avançar");
+        btnAvancar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOkActionPerformed(evt);
+                btnAvancarActionPerformed(evt);
             }
         });
 
@@ -110,7 +110,7 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnVoltar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnOk)
+                .addComponent(btnAvancar)
                 .addGap(18, 18, 18))
             .addGroup(layout.createSequentialGroup()
                 .addGap(92, 92, 92)
@@ -159,7 +159,7 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar)
-                    .addComponent(btnOk))
+                    .addComponent(btnAvancar))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -172,12 +172,12 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
+    private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
         // TODO add your handling code here:
         
         new TelaAtendimento(listaSelecionados, this).setVisible(true);
         
-    }//GEN-LAST:event_btnOkActionPerformed
+    }//GEN-LAST:event_btnAvancarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         
@@ -293,9 +293,9 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAvancar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnExcluir;
-    private javax.swing.JButton btnOk;
     private javax.swing.JButton btnSelecionar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;

@@ -3,7 +3,7 @@ package com.ferraztec.dto;
 import java.util.Date;
 import java.util.List;
 
-public class Venda {
+public class Atendimento {
     
     private int id;
     private Usuario usuario;
