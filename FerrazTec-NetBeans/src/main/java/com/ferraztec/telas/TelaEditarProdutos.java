@@ -7,22 +7,22 @@ import javax.swing.JOptionPane;
 public class TelaEditarProdutos extends javax.swing.JFrame {
 
     private int idProduto;
-    
+
     public TelaEditarProdutos(int idProduto) throws Exception {
         initComponents();
-        try{
-            Produto p = new Produto();
+        try {
+            Produto produto = new Produto();
             ProdutoDAO dao = new ProdutoDAO();
-            p = dao.buscarPorID(idProduto);
-            txtNome.setText(p.getNome());
-            txtPreco.setText(Double.toString(p.getValor()));
-            txtQuantidade.setText(Integer.toString(p.getQuantidade()));
-            txtDescricao.setText(p.getDescricao());
+            produto = dao.buscarPorID(idProduto);
+            txtNome.setText(produto.getNome());
+            txtPreco.setText(Double.toString(produto.getPreco()));
+            txtQuantidade.setText(Integer.toString(produto.getQuantidade()));
+            txtDescricao.setText(produto.getDescricao());
             this.idProduto = idProduto;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Algo deu errado!");
-        } 
+        }
     }
 
     private TelaEditarProdutos() {
@@ -142,18 +142,18 @@ public class TelaEditarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        Produto p = new Produto();
+        Produto produto = new Produto();
         ProdutoDAO dao = new ProdutoDAO();
-        p.setId(idProduto);
-        p.setNome(txtNome.getText());
-        p.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
-        p.setValor(Double.parseDouble(txtPreco.getText()));
-        p.setDescricao(txtDescricao.getText());
-        try{
-        dao.editar(p);
-        dispose();
-        }catch(Exception e){
-             JOptionPane.showMessageDialog(this, "Algo deu errado!");
+        produto.setId(idProduto);
+        produto.setNome(txtNome.getText());
+        produto.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
+        produto.setPreco(Double.parseDouble(txtPreco.getText()));
+        produto.setDescricao(txtDescricao.getText());
+        try {
+            dao.editar(produto);
+            dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Algo deu errado!");
             e.printStackTrace();
         }
     }//GEN-LAST:event_btnSalvarActionPerformed

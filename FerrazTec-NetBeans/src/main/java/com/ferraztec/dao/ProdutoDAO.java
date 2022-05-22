@@ -21,7 +21,7 @@ public class ProdutoDAO {
             pstm.setString(1, produto.getNome());
             pstm.setString(2, produto.getDescricao());
             pstm.setInt(3, produto.getQuantidade());
-            pstm.setDouble(4, produto.getValor());
+            pstm.setDouble(4, produto.getPreco());
 
             pstm.executeUpdate();
       
@@ -81,7 +81,7 @@ public class ProdutoDAO {
                 p.setNome(rset.getString("nome"));
                 p.setDescricao(rset.getString("descricao"));
                 p.setQuantidade(rset.getInt("quantidade"));
-                p.setValor(rset.getDouble("preco"));
+                p.setPreco(rset.getDouble("preco"));
             }
             
         } catch (Exception e) {
@@ -113,7 +113,7 @@ public class ProdutoDAO {
             pstm.setString(1, produto.getNome());
             pstm.setString(2, produto.getDescricao());
             pstm.setInt(3, produto.getQuantidade());
-            pstm.setDouble(4, produto.getValor());
+            pstm.setDouble(4, produto.getPreco());
             pstm.setInt(5, produto.getId());
 
             pstm.executeUpdate();

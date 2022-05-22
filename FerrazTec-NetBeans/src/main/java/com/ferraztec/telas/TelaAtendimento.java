@@ -17,28 +17,35 @@ public class TelaAtendimento extends javax.swing.JFrame {
         
         this.telaSelecionarProduto = telaSelecionarProduto;
         
+        this.setTotalSelecionados(listaSelecionados);
+        
         preencherTabela(listaSelecionados);
         
         lblTotal.setText("R$ "+Double.toString(totalSelecionados));
     }
-
-    private void preencherTabela(List<Produto> listaSelecionados) {
+    
+      private TelaAtendimento() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    private void preencherTabela(List<Produto> listaSelecionados){
         DefaultTableModel modeloTabela = (DefaultTableModel) tabelaProdutos.getModel();
-        for(int i=0; i<listaSelecionados.size(); i++){
-            Produto p2 = new Produto();
-            p2.setId(listaSelecionados.get(i).getId());
-            p2.setNome(listaSelecionados.get(i).getNome());
-            p2.setQuantidade(listaSelecionados.get(i).getQuantidade());
-            p2.setValor(listaSelecionados.get(i).getValor());
-            totalSelecionados += (p2.getValor()*p2.getQuantidade());
-            p2.setDescricao(listaSelecionados.get(i).getDescricao());
-            Object[] dados = {p2.getId() ,p2.getNome(), p2.getQuantidade(), p2.getValor(), p2.getDescricao()};
-            modeloTabela.addRow(dados);
+  
+        for (Produto selecionado : listaSelecionados){
+            modeloTabela.addRow(new Object[]{
+                selecionado.getId(),
+                selecionado.getNome(),
+                selecionado.getQuantidade(),
+                selecionado.getPreco(),
+                selecionado.getDescricao(),
+            });
         }
     }
 
-    private TelaAtendimento() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private void setTotalSelecionados(List<Produto> listaSelecionados) {
+        for(Produto selecionado : listaSelecionados){
+            this.totalSelecionados += (selecionado.getPreco()*selecionado.getQuantidade());
+        }
     }
 
     @SuppressWarnings("unchecked")

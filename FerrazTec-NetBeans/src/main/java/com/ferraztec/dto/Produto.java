@@ -7,7 +7,7 @@ public class Produto {
     private String nome;
     private String descricao;
     private int quantidade;
-    private double valor;
+    private double preco;
     
    
     
@@ -44,12 +44,12 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    public double getValor() {
-        return valor;
+    public double getPreco() {
+        return preco;
     }
 
-    public void setValor(double valor) {
-        this.valor = valor;
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
     
 }

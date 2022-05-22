@@ -143,7 +143,7 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
             p.setNome(txtNome.getText());
             p.setDescricao(txtDescricao.getText());
             p.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
-            p.setValor(Double.parseDouble(txtPreco.getText()));
+            p.setPreco(Double.parseDouble(txtPreco.getText()));
             dao.cadastrar(p);
             JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
             dispose();
