@@ -120,7 +120,7 @@ public class TelaBuscarProdutos extends javax.swing.JFrame {
             new TelaEditarProdutos(p.getId()).setVisible(true);
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Algo deu errado!");
+            JOptionPane.showMessageDialog(this, "Selecione um produto!");
             e.printStackTrace();
         }
        

@@ -81,7 +81,7 @@ public class ProdutoDAO {
                 p.setNome(rset.getString("nome"));
                 p.setDescricao(rset.getString("descricao"));
                 p.setQuantidade(rset.getInt("quantidade"));
-                p.setValor(rset.getDouble("valor"));
+                p.setValor(rset.getDouble("preco"));
             }
             
         } catch (Exception e) {

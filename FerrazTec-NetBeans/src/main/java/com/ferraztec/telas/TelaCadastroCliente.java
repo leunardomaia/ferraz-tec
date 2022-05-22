@@ -2,7 +2,6 @@ package com.ferraztec.telas;
 
 public class TelaCadastroCliente extends javax.swing.JFrame {
 
-
     public TelaCadastroCliente() {
         initComponents();
     }
@@ -35,6 +34,11 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
         btnVoltar.setText("Voltar");
         btnVoltar.setToolTipText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
 
         btnSalvar.setText("Salvar");
         btnSalvar.setToolTipText("Salvar");
@@ -89,6 +93,10 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        dispose();
+     }//GEN-LAST:event_btnVoltarActionPerformed
 
     public static void main(String args[]) {
 

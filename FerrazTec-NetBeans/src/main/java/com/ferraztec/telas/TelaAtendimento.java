@@ -9,27 +9,36 @@ public class TelaAtendimento extends javax.swing.JFrame {
     private double totalSelecionados = 0; 
     private TelaSelecionarProduto telaSelecionarProduto;
     
-    public TelaAtendimento(){
-        
-    }
-    
     public TelaAtendimento(List<Produto> listaSelecionados, TelaSelecionarProduto telaSelecionarProduto) {
         initComponents();
+        
+        txtDescricaoServico.setEnabled(false);
+        txtValorServico.setEnabled(false);
+        
         this.telaSelecionarProduto = telaSelecionarProduto;
         
+        preencherTabela(listaSelecionados);
+        
+        lblTotal.setText("R$ "+Double.toString(totalSelecionados));
+    }
+
+    private void preencherTabela(List<Produto> listaSelecionados) {
         DefaultTableModel modeloTabela = (DefaultTableModel) tabelaProdutos.getModel();
         for(int i=0; i<listaSelecionados.size(); i++){
-               Produto p2 = new Produto();
-               p2.setId(listaSelecionados.get(i).getId());
-               p2.setNome(listaSelecionados.get(i).getNome());
-               p2.setQuantidade(listaSelecionados.get(i).getQuantidade());
-               p2.setValor(listaSelecionados.get(i).getValor());
-               totalSelecionados += (p2.getValor()*p2.getQuantidade());
-               p2.setDescricao(listaSelecionados.get(i).getDescricao());
-               Object[] dados = {p2.getId() ,p2.getNome(), p2.getQuantidade(), p2.getValor(), p2.getDescricao()};
-               modeloTabela.addRow(dados);
-            }
-        lblTotal.setText("R$ "+Double.toString(totalSelecionados));
+            Produto p2 = new Produto();
+            p2.setId(listaSelecionados.get(i).getId());
+            p2.setNome(listaSelecionados.get(i).getNome());
+            p2.setQuantidade(listaSelecionados.get(i).getQuantidade());
+            p2.setValor(listaSelecionados.get(i).getValor());
+            totalSelecionados += (p2.getValor()*p2.getQuantidade());
+            p2.setDescricao(listaSelecionados.get(i).getDescricao());
+            Object[] dados = {p2.getId() ,p2.getNome(), p2.getQuantidade(), p2.getValor(), p2.getDescricao()};
+            modeloTabela.addRow(dados);
+        }
+    }
+
+    private TelaAtendimento() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @SuppressWarnings("unchecked")
@@ -50,7 +59,7 @@ public class TelaAtendimento extends javax.swing.JFrame {
         lblTotal = new javax.swing.JTextField();
         txtValorServico = new javax.swing.JTextField();
         btnBuscarCliente = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        checkBoxServico = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ATENDIMENTO");
@@ -94,18 +103,8 @@ public class TelaAtendimento extends javax.swing.JFrame {
         lblTotal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblTotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         lblTotal.setText("R$ 55.00");
-        lblTotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblTotalActionPerformed(evt);
-            }
-        });
 
         txtValorServico.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtValorServico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtValorServicoActionPerformed(evt);
-            }
-        });
         txtValorServico.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtValorServicoKeyReleased(evt);
@@ -122,7 +121,12 @@ public class TelaAtendimento extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox1.setText("Serviço");
+        checkBoxServico.setText("Serviço");
+        checkBoxServico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBoxServicoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,7 +144,7 @@ public class TelaAtendimento extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(txtDescricaoServico)
                     .addComponent(jLabel2)
-                    .addComponent(jCheckBox1)
+                    .addComponent(checkBoxServico)
                     .addComponent(jLabel5)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -165,7 +169,7 @@ public class TelaAtendimento extends javax.swing.JFrame {
                     .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarCliente))
                 .addGap(50, 50, 50)
-                .addComponent(jCheckBox1)
+                .addComponent(checkBoxServico)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -210,9 +214,6 @@ public class TelaAtendimento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtValorServicoKeyTyped
 
-    private void lblTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblTotalActionPerformed
-    }//GEN-LAST:event_lblTotalActionPerformed
-
     private void txtValorServicoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorServicoKeyReleased
          if (!txtValorServico.getText().isEmpty()){
             double total = (Double.valueOf(txtValorServico.getText()))+totalSelecionados;
@@ -222,15 +223,21 @@ public class TelaAtendimento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtValorServicoKeyReleased
 
-    private void txtValorServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorServicoActionPerformed
-    }//GEN-LAST:event_txtValorServicoActionPerformed
-
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
         TelaSelecionarCliente cliente = new TelaSelecionarCliente();
         cliente.setVisible(true);
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
-  
+    private void checkBoxServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxServicoActionPerformed
+            if(checkBoxServico.isSelected()){
+            txtDescricaoServico.setEnabled(true);
+            txtValorServico.setEnabled(true);
+        }else{
+            txtDescricaoServico.setEnabled(false);
+            txtValorServico.setEnabled(false);
+        }
+    }//GEN-LAST:event_checkBoxServicoActionPerformed
+
     public static void main(String args[]) {
       
         try {
@@ -262,7 +269,7 @@ public class TelaAtendimento extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscarCliente;
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox checkBoxServico;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
