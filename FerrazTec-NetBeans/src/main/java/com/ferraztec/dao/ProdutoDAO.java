@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 public class ProdutoDAO {
     
     public void cadastrar(Produto produto) throws Exception{
-        String sql = "INSERT INTO produtos (nome, descricao, quantidade, preco) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO produto (nome, descricao, quantidade, preco) VALUES (?, ?, ?, ?)";
         Connection conexao = null;
         PreparedStatement pstm = null;
         
@@ -39,7 +39,7 @@ public class ProdutoDAO {
     
     
     public ResultSet buscarPorNome(String busca) throws Exception{
-        String sql = "SELECT * FROM produtos WHERE nome LIKE '%"+busca+"%'";
+        String sql = "SELECT * FROM produto WHERE nome LIKE '%"+busca+"%'";
         
         Connection conexao = null;
         PreparedStatement pstm = null;
@@ -59,7 +59,7 @@ public class ProdutoDAO {
     }
     
     public Produto buscarPorID(int id) throws Exception{
-        String sql = "SELECT * FROM produtos WHERE id = "+id;
+        String sql = "SELECT * FROM produto WHERE id = "+id;
         
         Produto p = new Produto();
         
@@ -101,7 +101,7 @@ public class ProdutoDAO {
     }
     
     public void editar(Produto produto) throws Exception{
-        String sql = "UPDATE produtos SET nome = ?, descricao = ?, quantidade = ?, preco = ? WHERE id = ?";
+        String sql = "UPDATE produto SET nome = ?, descricao = ?, quantidade = ?, preco = ? WHERE id = ?";
         Connection conexao = null;
         PreparedStatement pstm = null;
         

@@ -7,9 +7,9 @@ public class Conexao {
     
     // Atributos
     
-    private static final String URL = "jdbc:mysql://localhost:3306/ferraztec";
-    private static final String USUARIO = "root";
-    private static final String SENHA = "";
+    private static final String URL = "jdbc:mysql://www.adrianobraga.com.br:3306/adrianob_2022grupo4";
+    private static final String USUARIO = "adrianob_2022user4";
+    private static final String SENHA = "UsrGrp20224";
             
     // Métodos
     public static Connection criarConexao() throws Exception{
