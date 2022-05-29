@@ -151,6 +151,7 @@ public class TelaEditarProdutos extends javax.swing.JFrame {
         produto.setDescricao(txtDescricao.getText());
         try {
             dao.editar(produto);
+            JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
             dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Algo deu errado!");

@@ -74,6 +74,8 @@ public class TelaAtendimento extends javax.swing.JFrame {
 
         jLabel4.setText("Cliente");
 
+        txtNomeCliente.setEditable(false);
+
         jLabel5.setText("Produtos");
 
         tabelaProdutos.setModel(new javax.swing.table.DefaultTableModel(

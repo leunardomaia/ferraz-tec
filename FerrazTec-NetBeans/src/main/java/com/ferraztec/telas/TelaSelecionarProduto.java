@@ -169,36 +169,33 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         try {
-            povoarTabela();
+            preencherTabela();
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Algo deu errado!");
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void povoarTabela() throws Exception{
-        
+    
+        private void preencherTabela() throws Exception{
         DefaultTableModel modeloTabela = (DefaultTableModel) tabelaProdutos.getModel();
         ProdutoDAO dao = new ProdutoDAO();
         
         modeloTabela.setNumRows(0);
         String busca = txtBuscar.getText();
         
-        ResultSet rset = dao.buscarPorNome(busca);
+        List<Produto> produtos = dao.buscarPorNome(busca);
         
-        while (rset.next()){
+        for (Produto produto : produtos){
             modeloTabela.addRow(new Object[]{
-                rset.getInt(1),
-                rset.getString(2),
-                rset.getInt(4),
-                rset.getDouble(5),
-                rset.getString(3)
+                produto.getId(),
+                produto.getNome(),
+                produto.getQuantidade(),
+                produto.getPreco(),
+                produto.getDescricao(),
             });
         }
-        rset.close();
-        
     }
-    
+     
     private void btnSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarActionPerformed
         DefaultTableModel modeloTabelaSelecionados = (DefaultTableModel) tabelaProdutosSelecionados.getModel();
         Produto p = new Produto();
