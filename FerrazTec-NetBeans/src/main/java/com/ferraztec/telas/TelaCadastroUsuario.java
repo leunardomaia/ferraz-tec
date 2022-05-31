@@ -180,24 +180,20 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos!");
         }else{
             if(Arrays.toString(txtSenha.getPassword()).equals(Arrays.toString(txtConfirmarSenha.getPassword()))){
-                usuario.setNomeCompleto(txtNomeCompleto.getText());
-                usuario.setLogin(txtLogin.getText());
-                usuario.setTelefone(txtTelefone.getText());
-                usuario.setEmail(txtEmail.getText());
-                usuario.setSenha(new String(txtSenha.getPassword()));
+                preencheDadosUsuario(usuario);
             
-            try {
-                boolean sucesso = dao.cadastrar(usuario);
-                if(sucesso){
-                    JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
-                    dispose();
-                }else{
+                try {
+                    boolean sucesso = dao.cadastrar(usuario);
+                    if (sucesso) {
+                        JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
+                        dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Algo deu errado!");
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                     JOptionPane.showMessageDialog(this, "Algo deu errado!");
                 }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-                JOptionPane.showMessageDialog(this, "Algo deu errado!");
-            }
             
             }else{
                 JOptionPane.showMessageDialog(this, "Senhas diferentes!");
@@ -209,6 +205,15 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void preencheDadosUsuario(Usuario usuario) {
+        // esta parte preenche os dados do usuario
+        usuario.setNomeCompleto(txtNomeCompleto.getText());
+        usuario.setLogin(txtLogin.getText());
+        usuario.setTelefone(txtTelefone.getText());
+        usuario.setEmail(txtEmail.getText());
+        usuario.setSenha(new String(txtSenha.getPassword()));
+    }
 
     private void txtNomeCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeCompletoActionPerformed
         // TODO add your handling code here:
