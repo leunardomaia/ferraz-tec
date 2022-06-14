@@ -128,3 +128,8 @@ CREATE TABLE IF NOT EXISTS `ferrazTec`.`venda_produto` (
 ENGINE = InnoDB;
 
 
+dshbhfb
+dvsdfkhvbad
+sdvadu
+sdvfdjb
+sdvndfn
