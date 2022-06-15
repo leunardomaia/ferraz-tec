@@ -1,6 +1,8 @@
 package com.ferraztec.telas;
 
 import com.ferraztec.dao.UsuarioDAO;
+import com.ferraztec.dao.AtendenteDAO;
+import com.ferraztec.dto.Atendente;
 import com.ferraztec.dto.Usuario;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
@@ -163,16 +165,15 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
 
         UsuarioDAO dao = new UsuarioDAO();
+        AtendenteDAO atendao = new AtendenteDAO();
         Usuario usuario = new Usuario();
+        Atendente atendente = new Atendente();
         
-        if(estaVazio(txtNomeCompleto) || estaVazio(txtLogin) || estaVazio(txtTelefone) || estaVazio(txtEmail) || passwordEstaVazio(txtSenha)){
+        if(estaVazio(txtNomeCompleto) || estaVazio(txtTelefone) || estaVazio(txtEmail) ){
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos!");
         }else{
-            if(Arrays.toString(txtSenha.getPassword()).equals(Arrays.toString(txtConfirmarSenha.getPassword()))){
-                preencheDadosUsuario(usuario);
-            
-                try {
-                    boolean sucesso = dao.cadastrar(usuario);
+             try {
+                    boolean sucesso = atendao.cadastrar(atendente);
                     if (sucesso) {
                         JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
                         dispose();
@@ -184,19 +185,51 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Algo deu errado!");
                 }
             
-            }else{
-                JOptionPane.showMessageDialog(this, "Senhas diferentes!");
-            }
+        }if(estaVazio(txtLogin) || passwordEstaVazio(txtSenha)){
+            JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos!");
+        }else{
+            preencherDadosAtendente(atendente);
+            try {
+                    boolean sucesso = atendao.cadastrar(atendente);
+                    if (sucesso) {
+                        JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
+                        dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Algo deu errado!");
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(this, "Algo deu errado!");
+                }
+        }if(Arrays.toString(txtSenha.getPassword()).equals(Arrays.toString(txtConfirmarSenha.getPassword()))){
+            preencheDadosUsuario(usuario);
             
+            try {
+                boolean sucesso = dao.cadastrar(usuario);
+                if (sucesso) {
+                    JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Algo deu errado!");
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Algo deu errado!");
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Senhas diferentes!");
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void preencheDadosUsuario(Usuario usuario) {
-        usuario.setNomeCompleto(txtNomeCompleto.getText());
         usuario.setLogin(txtLogin.getText());
-        usuario.setTelefone(txtTelefone.getText());
-        usuario.setEmail(txtEmail.getText());
         usuario.setSenha(new String(txtSenha.getPassword()));
+    }
+    
+    private void preencherDadosAtendente(Atendente atendente) {
+        atendente.setNome(txtNomeCompleto.getText());
+        atendente.setTelefone(txtTelefone.getText());
+        atendente.setEmail(txtEmail.getText());
     }
 
     private void txtNomeCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeCompletoActionPerformed
