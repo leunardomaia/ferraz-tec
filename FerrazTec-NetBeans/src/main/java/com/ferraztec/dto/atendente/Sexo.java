@@ -1,4 +1,4 @@
-package com.ferraztec.dto;
+package com.ferraztec.dto.atendente;
 
 public enum Sexo {
     M("M"), 

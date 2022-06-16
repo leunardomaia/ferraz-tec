@@ -1,5 +1,7 @@
 package com.ferraztec.dto;
 
+import com.ferraztec.dto.atendente.Sexo;
+
 public class Atendente {
     
     private int id;

@@ -115,7 +115,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_lblCadastrarMouseClicked
 
     private void lblSobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSobreMouseClicked
-        new TelaSobreCriadores().setVisibile(true);
+        new TelaSobreCriadores().setVisible(true);
     }//GEN-LAST:event_lblSobreMouseClicked
 
     public static void main(String args[]) {

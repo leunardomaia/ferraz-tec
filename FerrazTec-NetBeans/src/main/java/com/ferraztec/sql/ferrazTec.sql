@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS `ferrazTec`.`atendente` (
   `nome` VARCHAR(60) CHARACTER SET 'utf8' NOT NULL,
   `telefone` VARCHAR(30) NOT NULL,
   `email` VARCHAR(40) NOT NULL,
+  `sexo` ENUM('M', 'F'),
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -126,5 +127,14 @@ CREATE TABLE IF NOT EXISTS `ferrazTec`.`venda_produto` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+DELIMITER $$
+CREATE DEFINER=`adrianob_2022user4`@`%` FUNCTION `criptografar`(senha varchar(45)) RETURNS varchar(100) CHARSET latin1
+begin
+declare senha_criptografada varchar(100);
+SET senha_criptografada = sha1(md5(senha));
+RETURN senha_criptografada;
+end$$
+DELIMITER ;
 
 

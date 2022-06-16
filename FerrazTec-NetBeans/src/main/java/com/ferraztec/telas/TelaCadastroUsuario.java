@@ -4,7 +4,10 @@ import com.ferraztec.dao.UsuarioDAO;
 import com.ferraztec.dao.AtendenteDAO;
 import com.ferraztec.dto.Atendente;
 import com.ferraztec.dto.Usuario;
+import com.ferraztec.dto.atendente.Sexo;
 import java.util.Arrays;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -13,6 +16,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
     public TelaCadastroUsuario() {
         initComponents();
+        comboSexo.setModel(new DefaultComboBoxModel<Sexo>(Sexo.values()));
     }
 
     @SuppressWarnings("unchecked")
@@ -33,6 +37,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         txtSenha = new javax.swing.JPasswordField();
         txtConfirmarSenha = new javax.swing.JPasswordField();
         btnVoltar = new javax.swing.JButton();
+        comboSexo = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CADASTRO DE USUÁRIO");
@@ -41,20 +47,10 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         jLabel1.setText("Nome Completo");
 
         txtNomeCompleto.setToolTipText("");
-        txtNomeCompleto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeCompletoActionPerformed(evt);
-            }
-        });
 
         jLabel2.setText("Login");
 
         txtLogin.setToolTipText("");
-        txtLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLoginActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("Telefone");
 
@@ -71,18 +67,16 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
         jLabel6.setText("Confirmar Senha");
 
-        txtConfirmarSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtConfirmarSenhaActionPerformed(evt);
-            }
-        });
-
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
             }
         });
+
+        comboSexo.setModel(new javax.swing.DefaultComboBoxModel<>(Sexo.values()));
+
+        jLabel7.setText("Sexo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,9 +90,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
@@ -108,12 +100,19 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                             .addGap(101, 101, 101)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtNomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel6)
                                 .addComponent(jLabel4)
                                 .addComponent(jLabel3)
                                 .addComponent(jLabel2)
-                                .addComponent(jLabel1)))))
+                                .addComponent(jLabel1))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel5)
+                        .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel6)
+                        .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(101, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -136,14 +135,18 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(comboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel5)
-                .addGap(6, 6, 6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addGap(6, 6, 6)
                 .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar)
                     .addComponent(btnSalvar))
@@ -164,86 +167,49 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
 
-        UsuarioDAO dao = new UsuarioDAO();
-        AtendenteDAO atendao = new AtendenteDAO();
+        UsuarioDAO usuarioDao = new UsuarioDAO();
+        AtendenteDAO atendenteDao = new AtendenteDAO();
         Usuario usuario = new Usuario();
         Atendente atendente = new Atendente();
         
-        if(estaVazio(txtNomeCompleto) || estaVazio(txtTelefone) || estaVazio(txtEmail) ){
+        if(estaVazio(txtNomeCompleto) || estaVazio(txtTelefone) || estaVazio(txtEmail) || estaVazio(txtLogin) || passwordEstaVazio(txtSenha) ){
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos!");
         }else{
-             try {
-                    boolean sucesso = atendao.cadastrar(atendente);
-                    if (sucesso) {
-                        JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
-                        dispose();
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Algo deu errado!");
-                    }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(this, "Algo deu errado!");
-                }
-            
-        }if(estaVazio(txtLogin) || passwordEstaVazio(txtSenha)){
-            JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos!");
-        }else{
-            preencherDadosAtendente(atendente);
-            try {
-                    boolean sucesso = atendao.cadastrar(atendente);
-                    if (sucesso) {
-                        JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
-                        dispose();
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Algo deu errado!");
-                    }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(this, "Algo deu errado!");
-                }
-        }if(Arrays.toString(txtSenha.getPassword()).equals(Arrays.toString(txtConfirmarSenha.getPassword()))){
-            preencheDadosUsuario(usuario);
-            
-            try {
-                boolean sucesso = dao.cadastrar(usuario);
-                if (sucesso) {
+            if(Arrays.toString(txtSenha.getPassword()).equals(Arrays.toString(txtConfirmarSenha.getPassword()))){
+                preencherDadosAtendente(atendente);
+                try {
+                    int idAtendente = atendenteDao.cadastrar(atendente);
+                    atendente.setId(idAtendente);
+                    preencheDadosUsuario(usuario, atendente);
+                    usuarioDao.cadastrar(usuario);
                     JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
                     dispose();
-                } else {
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                     JOptionPane.showMessageDialog(this, "Algo deu errado!");
                 }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-                JOptionPane.showMessageDialog(this, "Algo deu errado!");
+            }else{
+                JOptionPane.showMessageDialog(this, "Senhas diferentes!");
             }
-        }else{
-            JOptionPane.showMessageDialog(this, "Senhas diferentes!");
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
-    private void preencheDadosUsuario(Usuario usuario) {
+    private void preencheDadosUsuario(Usuario usuario, Atendente atendente) {
         usuario.setLogin(txtLogin.getText());
         usuario.setSenha(new String(txtSenha.getPassword()));
+        usuario.setAtendente(atendente);
     }
     
     private void preencherDadosAtendente(Atendente atendente) {
         atendente.setNome(txtNomeCompleto.getText());
         atendente.setTelefone(txtTelefone.getText());
         atendente.setEmail(txtEmail.getText());
+        atendente.setSexo((Sexo) comboSexo.getModel().getSelectedItem());
     }
-
-    private void txtNomeCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeCompletoActionPerformed
-    }//GEN-LAST:event_txtNomeCompletoActionPerformed
-
-    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
-    }//GEN-LAST:event_txtLoginActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
-
-    private void txtConfirmarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConfirmarSenhaActionPerformed
-    }//GEN-LAST:event_txtConfirmarSenhaActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -273,12 +239,14 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JComboBox<Sexo> comboSexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPasswordField txtConfirmarSenha;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtLogin;
