@@ -1,5 +1,9 @@
 package com.ferraztec.telas;
 
+import com.ferraztec.dao.ClienteDAO;
+import com.ferraztec.dto.Cliente;
+import javax.swing.JOptionPane;
+
 public class TelaCadastroCliente extends javax.swing.JFrame {
 
     public TelaCadastroCliente() {
@@ -17,7 +21,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         btnVoltar = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
         txtNome1 = new javax.swing.JTextField();
-        txtTelefone1 = new javax.swing.JTextField();
+        txtCpf = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CADASTRO DE CLIENTE");
@@ -42,10 +46,15 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
         btnSalvar.setText("Salvar");
         btnSalvar.setToolTipText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         txtNome1.setPreferredSize(new java.awt.Dimension(64, 28));
 
-        txtTelefone1.setPreferredSize(new java.awt.Dimension(64, 28));
+        txtCpf.setPreferredSize(new java.awt.Dimension(64, 28));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -59,7 +68,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(txtTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtNome1, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
-                    .addComponent(txtTelefone1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtCpf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(130, 130, 130))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(30, 30, 30)
@@ -82,7 +91,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTelefone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar)
@@ -97,6 +106,23 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         dispose();
      }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        Cliente c = new Cliente();
+        ClienteDAO dao = new ClienteDAO();
+        try {
+            c.setNome(txtNome1.getText());
+            c.setTelefone(txtTelefone.getText());
+            c.setCpf(txtCpf.getText());
+            dao.cadastrar(c);
+            JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
+            dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Algo deu errado!");
+            e.printStackTrace();
+        } 
+        
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
     public static void main(String args[]) {
 
@@ -131,8 +157,8 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtNome1;
     private javax.swing.JTextField txtTelefone;
-    private javax.swing.JTextField txtTelefone1;
     // End of variables declaration//GEN-END:variables
 }

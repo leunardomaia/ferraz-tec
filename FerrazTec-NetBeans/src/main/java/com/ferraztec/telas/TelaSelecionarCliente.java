@@ -1,6 +1,15 @@
 package com.ferraztec.telas;
 
+import com.ferraztec.dao.ClienteDAO;
+import com.ferraztec.dto.Cliente;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class TelaSelecionarCliente extends javax.swing.JFrame {
+    
+    List<Cliente> listaSelecionados = new ArrayList<Cliente>();
 
     public TelaSelecionarCliente() {
         initComponents();
@@ -107,7 +116,32 @@ public class TelaSelecionarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-
+        try {
+            preencherTabela();
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Algo deu errado!");
+        }
+    }                                         
+    
+        private void preencherTabela() throws Exception{
+        DefaultTableModel modeloTabela = (DefaultTableModel) tabelaClientes.getModel();
+        ClienteDAO dao = new ClienteDAO();
+        
+        modeloTabela.setNumRows(0);
+        String busca = txtBuscar.getText();
+        
+        List<Cliente> clientes = dao.buscarPorNome(busca);
+        
+        for (Cliente cliente : clientes){
+            modeloTabela.addRow(new Object[]{
+                cliente.getId(),
+                cliente.getNome(),
+                cliente.getTelefone(),
+                cliente.getCpf(),
+            });
+        }
+    }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
