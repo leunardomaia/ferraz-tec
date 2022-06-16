@@ -6,7 +6,6 @@ import com.ferraztec.dto.Atendente;
 import com.ferraztec.dto.Usuario;
 import com.ferraztec.dto.atendente.Sexo;
 import java.util.Arrays;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;

@@ -92,7 +92,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ferrazTec`.`usuario` (
   `idusuario` INT NOT NULL,
-  `login` VARCHAR(45) NOT NULL,
+  `login` VARCHAR(45) NOT NULL UNIQUE,
   `senha` VARCHAR(45) NOT NULL,
   `atendente_id` INT NOT NULL,
   PRIMARY KEY (`idusuario`),
