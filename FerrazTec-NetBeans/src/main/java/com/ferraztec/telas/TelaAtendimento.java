@@ -1,5 +1,6 @@
 package com.ferraztec.telas;
 
+import com.ferraztec.dto.Cliente;
 import com.ferraztec.dto.Produto;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -25,7 +26,6 @@ public class TelaAtendimento extends javax.swing.JFrame {
     }
     
       private TelaAtendimento() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     private void preencherTabela(List<Produto> listaSelecionados){
@@ -224,7 +224,7 @@ public class TelaAtendimento extends javax.swing.JFrame {
     }//GEN-LAST:event_txtValorServicoKeyTyped
 
     private void txtValorServicoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorServicoKeyReleased
-         if (!txtValorServico.getText().isEmpty()){
+        if (!txtValorServico.getText().isEmpty()){
             double total = (Double.valueOf(txtValorServico.getText()))+totalSelecionados;
             lblTotal.setText("R$ "+Double.toString(total));
         }else{
@@ -233,20 +233,24 @@ public class TelaAtendimento extends javax.swing.JFrame {
     }//GEN-LAST:event_txtValorServicoKeyReleased
 
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
-        TelaSelecionarCliente cliente = new TelaSelecionarCliente();
+        TelaSelecionarCliente cliente = new TelaSelecionarCliente(this);
         cliente.setVisible(true);
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
     private void checkBoxServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxServicoActionPerformed
-            if(checkBoxServico.isSelected()){
+        if (checkBoxServico.isSelected()) {
             txtDescricaoServico.setEnabled(true);
             txtValorServico.setEnabled(true);
-        }else{
+        } else {
             txtDescricaoServico.setEnabled(false);
             txtValorServico.setEnabled(false);
         }
     }//GEN-LAST:event_checkBoxServicoActionPerformed
 
+    void selecionarCliente(Cliente cliente) {
+        txtNomeCliente.setText(cliente.getNome());
+    }
+    
     public static void main(String args[]) {
       
         try {
@@ -256,21 +260,13 @@ public class TelaAtendimento extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaAtendimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaAtendimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaAtendimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaAtendimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
      
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaAtendimento().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new TelaAtendimento().setVisible(true);
         });
     }
 
@@ -291,4 +287,6 @@ public class TelaAtendimento extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomeCliente;
     private javax.swing.JTextField txtValorServico;
     // End of variables declaration//GEN-END:variables
+
+    
 }

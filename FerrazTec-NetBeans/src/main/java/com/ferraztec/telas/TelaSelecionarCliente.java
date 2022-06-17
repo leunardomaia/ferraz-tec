@@ -2,20 +2,22 @@ package com.ferraztec.telas;
 
 import com.ferraztec.dao.ClienteDAO;
 import com.ferraztec.dto.Cliente;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class TelaSelecionarCliente extends javax.swing.JFrame {
-    
-    List<Cliente> listaSelecionados = new ArrayList<Cliente>();
 
-    public TelaSelecionarCliente() {
+    private TelaAtendimento telaAtendimento;
+    
+    public TelaSelecionarCliente(TelaAtendimento telaAtendimento) {
+        this.telaAtendimento = telaAtendimento;
         initComponents();
     }
 
-   
+    private TelaSelecionarCliente() {
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -108,7 +110,15 @@ public class TelaSelecionarCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarActionPerformed
-
+        Cliente cliente = new Cliente();
+        
+        cliente.setId((int) tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 0));
+        cliente.setNome((String) tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 1));
+        cliente.setTelefone((String) tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 2));
+        cliente.setCpf((String) tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 3));
+        
+        telaAtendimento.selecionarCliente(cliente);
+        dispose();
     }//GEN-LAST:event_btnSelecionarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -141,18 +151,11 @@ public class TelaSelecionarCliente extends javax.swing.JFrame {
                 cliente.getCpf(),
             });
         }
-    }
+    
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -160,22 +163,12 @@ public class TelaSelecionarCliente extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaSelecionarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaSelecionarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaSelecionarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaSelecionarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaSelecionarCliente().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new TelaSelecionarCliente().setVisible(true);
         });
     }
 

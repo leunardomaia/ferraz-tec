@@ -22,7 +22,7 @@ public class ClienteDAO {
         }
     }
     public List<Cliente> buscarPorNome(String busca) throws Exception {
-        String sql = "SELECT * FROM produto WHERE nome LIKE '%" + busca + "%'";
+        String sql = "SELECT * FROM cliente WHERE nome LIKE '%" + busca + "%'";
         List<Cliente> clientes = new ArrayList<>();
 
         try (Connection conexao = Conexao.criarConexao(); 

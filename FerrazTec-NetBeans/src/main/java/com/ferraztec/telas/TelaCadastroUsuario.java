@@ -15,7 +15,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
     public TelaCadastroUsuario() {
         initComponents();
-        comboSexo.setModel(new DefaultComboBoxModel<Sexo>(Sexo.values()));
+        comboSexo.setModel(new DefaultComboBoxModel<>(Sexo.values()));
     }
 
     @SuppressWarnings("unchecked")
@@ -218,20 +218,12 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaCadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaCadastroUsuario().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new TelaCadastroUsuario().setVisible(true);
         });
     }
 

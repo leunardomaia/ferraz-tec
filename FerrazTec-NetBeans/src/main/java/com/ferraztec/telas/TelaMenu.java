@@ -37,19 +37,9 @@ public class TelaMenu extends javax.swing.JFrame {
         btnEncerrar = new javax.swing.JMenuItem();
 
         menu1.setLabel("File");
-        menu1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu1ActionPerformed(evt);
-            }
-        });
         menuBar1.add(menu1);
 
         menu2.setLabel("Edit");
-        menu2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu2ActionPerformed(evt);
-            }
-        });
         menuBar1.add(menu2);
 
         jMenuItem1.setText("jMenuItem1");
@@ -59,16 +49,10 @@ public class TelaMenu extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblImagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblImagem.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\GitHub\\ferraz-tec\\FerrazTec-NetBeans\\src\\main\\java\\images\\teste.png")); // NOI18N
         getContentPane().add(lblImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 0, 1790, 1440));
 
         jMenu1.setText("Produto");
         jMenu1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
-            }
-        });
 
         btnCadastrarProduto.setText("Cadastrar");
         btnCadastrarProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -168,18 +152,6 @@ public class TelaMenu extends javax.swing.JFrame {
         new TelaCadastroCliente().setVisible(true);
     }//GEN-LAST:event_btnCadastrarClienteActionPerformed
 
-    private void menu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menu2ActionPerformed
-
-    private void menu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menu1ActionPerformed
-
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu1ActionPerformed
-
     private void btnBuscarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProdutoActionPerformed
         new TelaBuscarProdutos().setVisible(true);
     }//GEN-LAST:event_btnBuscarProdutoActionPerformed
@@ -202,11 +174,6 @@ public class TelaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEncerrarActionPerformed
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -214,23 +181,12 @@ public class TelaMenu extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaMenu().setVisible(true);
-            }
+        
+        java.awt.EventQueue.invokeLater(() -> {
+            new TelaMenu().setVisible(true);
         });
     }
 

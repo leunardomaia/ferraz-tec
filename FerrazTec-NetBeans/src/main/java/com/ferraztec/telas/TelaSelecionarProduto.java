@@ -2,7 +2,6 @@ package com.ferraztec.telas;
 
 import com.ferraztec.dao.ProdutoDAO;
 import com.ferraztec.dto.Produto;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -10,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class TelaSelecionarProduto extends javax.swing.JFrame {
 
-    List<Produto> listaSelecionados = new ArrayList<Produto>();
+    List<Produto> listaSelecionados = new ArrayList<>();
     
     public TelaSelecionarProduto() {
         initComponents();
@@ -247,20 +246,12 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaSelecionarProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaSelecionarProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaSelecionarProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaSelecionarProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
       
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaSelecionarProduto().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new TelaSelecionarProduto().setVisible(true);
         });
     }
 
