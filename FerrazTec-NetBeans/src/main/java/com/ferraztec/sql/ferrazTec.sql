@@ -2,9 +2,7 @@
 CREATE SCHEMA IF NOT EXISTS `ferrazTec` DEFAULT CHARACTER SET utf8 ;
 USE `ferrazTec` ;
 
--- -----------------------------------------------------
--- Table `ferrazTec`.`atendente`
--- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS `ferrazTec`.`atendente` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(60) CHARACTER SET 'utf8' NOT NULL,
@@ -15,9 +13,6 @@ CREATE TABLE IF NOT EXISTS `ferrazTec`.`atendente` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `ferrazTec`.`produto`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ferrazTec`.`produto` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(60) NOT NULL,
@@ -28,11 +23,8 @@ CREATE TABLE IF NOT EXISTS `ferrazTec`.`produto` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `ferrazTec`.`cliente`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ferrazTec`.`cliente` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(60) NOT NULL,
   `telefone` VARCHAR(30) NOT NULL,
   `cpf` VARCHAR(25) NOT NULL,
@@ -42,10 +34,6 @@ CREATE TABLE IF NOT EXISTS `ferrazTec`.`cliente` (
   UNIQUE INDEX `telefone_UNIQUE` (`telefone` ASC))
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `ferrazTec`.`atendimento`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ferrazTec`.`atendimento` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `dataHoraAtendimento` DATETIME NOT NULL,
@@ -67,9 +55,6 @@ CREATE TABLE IF NOT EXISTS `ferrazTec`.`atendimento` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `ferrazTec`.`mao_obra`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ferrazTec`.`mao_obra` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `dataHora` DATETIME NOT NULL,
@@ -87,11 +72,8 @@ CREATE TABLE IF NOT EXISTS `ferrazTec`.`mao_obra` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `ferrazTec`.`usuario`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ferrazTec`.`usuario` (
-  `idusuario` INT NOT NULL,
+  `idusuario` INT NOT NULL AUTO_INCREMENT,
   `login` VARCHAR(45) NOT NULL UNIQUE,
   `senha` VARCHAR(45) NOT NULL,
   `atendente_id` INT NOT NULL,
@@ -105,9 +87,6 @@ CREATE TABLE IF NOT EXISTS `ferrazTec`.`usuario` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `ferrazTec`.`venda_produto`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ferrazTec`.`venda_produto` (
   `produto_id` INT UNSIGNED NOT NULL,
   `atendimento_id` INT UNSIGNED NOT NULL,
@@ -128,13 +107,14 @@ CREATE TABLE IF NOT EXISTS `ferrazTec`.`venda_produto` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+SET GLOBAL log_bin_trust_function_creators = 1;
+
 DELIMITER $$
-CREATE DEFINER=`adrianob_2022user4`@`%` FUNCTION `criptografar`(senha varchar(45)) RETURNS varchar(100) CHARSET latin1
+CREATE FUNCTION `criptografar`(senha varchar(45)) RETURNS varchar(100) CHARSET latin1
 begin
 declare senha_criptografada varchar(100);
 SET senha_criptografada = sha1(md5(senha));
 RETURN senha_criptografada;
 end$$
 DELIMITER ;
-
 

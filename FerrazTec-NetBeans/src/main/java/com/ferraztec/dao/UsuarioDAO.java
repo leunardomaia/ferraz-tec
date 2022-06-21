@@ -20,14 +20,17 @@ public class UsuarioDAO {
     }
     
         public boolean autenticar(Usuario usuario) throws Exception {
-        String sql = "SELECT login, senha FROM usuario WHERE login = ? and senha = criptografar(?)";
+        String sql = "SELECT login FROM usuario WHERE senha = criptografar(?)";
         
         try ( Connection conexao = Conexao.criarConexao();  PreparedStatement pstm = conexao.prepareStatement(sql)) {
-            pstm.setString(1, usuario.getLogin());
-            pstm.setString(2, usuario.getSenha());
+            pstm.setString(1, usuario.getSenha());
             ResultSet resultSet = pstm.executeQuery(); 
             
-            return resultSet.next();
+            if(resultSet.next()){
+                return usuario.getLogin().equals(resultSet.getString("login")); 
+            }
+            
+            return false;
         }
     }
   
