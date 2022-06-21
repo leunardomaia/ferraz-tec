@@ -87,6 +87,14 @@ public class TelaAtendimento extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(tabelaProdutos);
+        if (tabelaProdutos.getColumnModel().getColumnCount() > 0) {
+            tabelaProdutos.getColumnModel().getColumn(0).setPreferredWidth(50);
+            tabelaProdutos.getColumnModel().getColumn(0).setMaxWidth(50);
+            tabelaProdutos.getColumnModel().getColumn(2).setPreferredWidth(80);
+            tabelaProdutos.getColumnModel().getColumn(2).setMaxWidth(80);
+            tabelaProdutos.getColumnModel().getColumn(3).setPreferredWidth(80);
+            tabelaProdutos.getColumnModel().getColumn(3).setMaxWidth(80);
+        }
 
         jLabel6.setText("Valor do Serviço");
 
