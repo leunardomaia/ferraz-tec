@@ -17,6 +17,7 @@ public class TelaMenu extends javax.swing.JFrame {
         menu1 = new java.awt.Menu();
         menu2 = new java.awt.Menu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         lblImagem = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -33,6 +34,7 @@ public class TelaMenu extends javax.swing.JFrame {
         btnNovoAtendimento = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        btnSobre = new javax.swing.JMenuItem();
         btnDeslogar = new javax.swing.JMenuItem();
         btnEncerrar = new javax.swing.JMenuItem();
 
@@ -43,6 +45,8 @@ public class TelaMenu extends javax.swing.JFrame {
         menuBar1.add(menu2);
 
         jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FERRAZTEC");
@@ -114,9 +118,22 @@ public class TelaMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu6);
 
-        jMenu4.setText("Sair");
+        jMenu4.setText("Mais");
         jMenu4.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        jMenu4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu4ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jSeparator1);
+
+        btnSobre.setText("Sobre");
+        btnSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSobreActionPerformed(evt);
+            }
+        });
+        jMenu4.add(btnSobre);
 
         btnDeslogar.setText("Deslogar");
         btnDeslogar.addActionListener(new java.awt.event.ActionListener() {
@@ -173,6 +190,14 @@ public class TelaMenu extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnEncerrarActionPerformed
 
+    private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu4ActionPerformed
+
+    private void btnSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSobreActionPerformed
+        new TelaSobreCriadores().setVisible(true);
+    }//GEN-LAST:event_btnSobreActionPerformed
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -198,6 +223,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnDeslogar;
     private javax.swing.JMenuItem btnEncerrar;
     private javax.swing.JMenuItem btnNovoAtendimento;
+    private javax.swing.JMenuItem btnSobre;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -205,6 +231,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;

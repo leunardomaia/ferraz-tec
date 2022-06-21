@@ -20,7 +20,6 @@ public class TelaLogin extends javax.swing.JFrame {
         btnEntrar = new javax.swing.JButton();
         txtSenha = new javax.swing.JPasswordField();
         lblCadastrar = new javax.swing.JLabel();
-        lblSobre = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOGIN");
@@ -51,15 +50,6 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        lblSobre.setForeground(new java.awt.Color(0, 0, 204));
-        lblSobre.setText("<html><u>Sobre os Criadores do Sistema</u></html>");
-        lblSobre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblSobre.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblSobreMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -74,9 +64,8 @@ public class TelaLogin extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtSenha)
-                            .addComponent(lblCadastrar, javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(lblSobre, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtLogin))
+                            .addComponent(txtLogin)
+                            .addComponent(lblCadastrar))
                         .addGap(100, 100, 100))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,11 +86,9 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnEntrar)
-                .addGap(42, 42, 42)
+                .addGap(50, 50, 50)
                 .addComponent(lblCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblSobre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -133,10 +120,6 @@ public class TelaLogin extends javax.swing.JFrame {
         new TelaCadastroUsuario().setVisible(true);
     }//GEN-LAST:event_lblCadastrarMouseClicked
 
-    private void lblSobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSobreMouseClicked
-        new TelaSobreCriadores().setVisible(true);
-    }//GEN-LAST:event_lblSobreMouseClicked
-
     public static void main(String args[]) {
        
         try {
@@ -161,7 +144,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblCadastrar;
-    private javax.swing.JLabel lblSobre;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
