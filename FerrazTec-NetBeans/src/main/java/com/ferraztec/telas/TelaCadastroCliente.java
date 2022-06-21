@@ -38,6 +38,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
         btnVoltar.setText("Voltar");
         btnVoltar.setToolTipText("Voltar");
+        btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
@@ -46,6 +47,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
         btnSalvar.setText("Salvar");
         btnSalvar.setToolTipText("Salvar");
+        btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);

@@ -56,9 +56,11 @@ public class TelaMenu extends javax.swing.JFrame {
         getContentPane().add(lblImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 0, 1790, 1440));
 
         jMenu1.setText("Produto");
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
 
         btnCadastrarProduto.setText("Cadastrar");
+        btnCadastrarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCadastrarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarProdutoActionPerformed(evt);
@@ -67,6 +69,7 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu1.add(btnCadastrarProduto);
 
         btnBuscarProduto.setText("Buscar");
+        btnBuscarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarProdutoActionPerformed(evt);
@@ -77,9 +80,11 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Cliente");
+        jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu2.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
 
         btnCadastrarCliente.setText("Cadastrar");
+        btnCadastrarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarClienteActionPerformed(evt);
@@ -91,9 +96,11 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Usuário");
+        jMenu3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu3.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
 
         btnCadastrarUsuario.setText("Cadastrar");
+        btnCadastrarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCadastrarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarUsuarioActionPerformed(evt);
@@ -105,10 +112,12 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu3);
 
         jMenu6.setText(" Atendimento");
+        jMenu6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu6.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         jMenu6.add(jSeparator2);
 
         btnNovoAtendimento.setText("Novo Atendimento");
+        btnNovoAtendimento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnNovoAtendimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNovoAtendimentoActionPerformed(evt);
@@ -119,6 +128,7 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu6);
 
         jMenu4.setText("Mais");
+        jMenu4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu4.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         jMenu4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +138,7 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu4.add(jSeparator1);
 
         btnSobre.setText("Sobre");
+        btnSobre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSobreActionPerformed(evt);
@@ -136,6 +147,7 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu4.add(btnSobre);
 
         btnDeslogar.setText("Deslogar");
+        btnDeslogar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDeslogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeslogarActionPerformed(evt);
@@ -144,6 +156,7 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu4.add(btnDeslogar);
 
         btnEncerrar.setText("Encerrar");
+        btnEncerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEncerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEncerrarActionPerformed(evt);

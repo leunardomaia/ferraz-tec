@@ -54,6 +54,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         jLabel3.setText("Telefone");
 
         btnSalvar.setText("Salvar");
+        btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
@@ -67,6 +68,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         jLabel6.setText("Confirmar Senha");
 
         btnVoltar.setText("Voltar");
+        btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
@@ -74,6 +76,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         });
 
         comboSexo.setModel(new javax.swing.DefaultComboBoxModel<>(Sexo.values()));
+        comboSexo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel7.setText("Sexo");
 

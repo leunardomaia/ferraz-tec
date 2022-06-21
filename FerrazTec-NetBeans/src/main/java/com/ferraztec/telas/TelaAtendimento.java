@@ -91,6 +91,7 @@ public class TelaAtendimento extends javax.swing.JFrame {
         jLabel6.setText("Valor do Serviço");
 
         btnConfirmar.setText("Confirmar");
+        btnConfirmar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmarActionPerformed(evt);
@@ -100,6 +101,7 @@ public class TelaAtendimento extends javax.swing.JFrame {
         jLabel1.setText("VALOR TOTAL");
 
         btnVoltar.setText("Voltar");
+        btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
@@ -124,6 +126,7 @@ public class TelaAtendimento extends javax.swing.JFrame {
         });
 
         btnBuscarCliente.setText("Buscar");
+        btnBuscarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarClienteActionPerformed(evt);
@@ -131,6 +134,7 @@ public class TelaAtendimento extends javax.swing.JFrame {
         });
 
         checkBoxServico.setText("Serviço");
+        checkBoxServico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         checkBoxServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxServicoActionPerformed(evt);

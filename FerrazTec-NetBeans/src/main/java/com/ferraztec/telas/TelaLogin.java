@@ -32,6 +32,7 @@ public class TelaLogin extends javax.swing.JFrame {
         txtLogin.setToolTipText("Digite seu usuário");
 
         btnEntrar.setText("Entrar");
+        btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEntrarActionPerformed(evt);

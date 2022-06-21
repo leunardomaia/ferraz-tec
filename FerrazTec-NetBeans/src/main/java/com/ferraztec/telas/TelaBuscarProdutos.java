@@ -32,6 +32,7 @@ public class TelaBuscarProdutos extends javax.swing.JFrame {
         jLabel1.setText("Nome do Produto");
 
         btnVoltar.setText("Voltar");
+        btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
@@ -39,6 +40,7 @@ public class TelaBuscarProdutos extends javax.swing.JFrame {
         });
 
         btnBuscar.setText("Buscar");
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
@@ -52,10 +54,27 @@ public class TelaBuscarProdutos extends javax.swing.JFrame {
             new String [] {
                 "ID", "Nome", "Quantidade", "Preço", "Descrição"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tabelaProdutos);
+        if (tabelaProdutos.getColumnModel().getColumnCount() > 0) {
+            tabelaProdutos.getColumnModel().getColumn(0).setPreferredWidth(50);
+            tabelaProdutos.getColumnModel().getColumn(0).setMaxWidth(50);
+            tabelaProdutos.getColumnModel().getColumn(2).setPreferredWidth(80);
+            tabelaProdutos.getColumnModel().getColumn(2).setMaxWidth(80);
+            tabelaProdutos.getColumnModel().getColumn(3).setPreferredWidth(80);
+            tabelaProdutos.getColumnModel().getColumn(3).setMaxWidth(80);
+        }
 
         btnEditar.setText("Editar");
+        btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);

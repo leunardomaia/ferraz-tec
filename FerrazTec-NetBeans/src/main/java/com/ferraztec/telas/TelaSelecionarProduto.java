@@ -38,6 +38,7 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
         setResizable(false);
 
         btnAvancar.setText("Avançar");
+        btnAvancar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAvancar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAvancarActionPerformed(evt);
@@ -51,8 +52,24 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
             new String [] {
                 "ID", "Nome", "Quantidade", "Preço", "Descrição"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(tabelaProdutosSelecionados);
+        if (tabelaProdutosSelecionados.getColumnModel().getColumnCount() > 0) {
+            tabelaProdutosSelecionados.getColumnModel().getColumn(0).setPreferredWidth(50);
+            tabelaProdutosSelecionados.getColumnModel().getColumn(0).setMaxWidth(50);
+            tabelaProdutosSelecionados.getColumnModel().getColumn(2).setPreferredWidth(80);
+            tabelaProdutosSelecionados.getColumnModel().getColumn(2).setMaxWidth(80);
+            tabelaProdutosSelecionados.getColumnModel().getColumn(3).setPreferredWidth(80);
+            tabelaProdutosSelecionados.getColumnModel().getColumn(3).setMaxWidth(80);
+        }
 
         tabelaProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -61,12 +78,29 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
             new String [] {
                 "ID", "Nome", "Quantidade", "Preço", "Descrição"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane4.setViewportView(tabelaProdutos);
+        if (tabelaProdutos.getColumnModel().getColumnCount() > 0) {
+            tabelaProdutos.getColumnModel().getColumn(0).setPreferredWidth(50);
+            tabelaProdutos.getColumnModel().getColumn(0).setMaxWidth(50);
+            tabelaProdutos.getColumnModel().getColumn(2).setPreferredWidth(80);
+            tabelaProdutos.getColumnModel().getColumn(2).setMaxWidth(80);
+            tabelaProdutos.getColumnModel().getColumn(3).setPreferredWidth(80);
+            tabelaProdutos.getColumnModel().getColumn(3).setMaxWidth(80);
+        }
 
         jLabel2.setText("Produto(s) Usado(s)");
 
         btnBuscar.setText("Buscar");
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
@@ -74,6 +108,7 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
         });
 
         btnSelecionar.setText("Selecionar");
+        btnSelecionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSelecionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSelecionarActionPerformed(evt);
@@ -83,10 +118,13 @@ public class TelaSelecionarProduto extends javax.swing.JFrame {
         jLabel1.setText("Mudar Quantidade");
 
         spiQuantidade.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        spiQuantidade.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnExcluir.setText("Excluir");
+        btnExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnVoltar.setText("Voltar");
+        btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);

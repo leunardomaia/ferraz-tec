@@ -34,6 +34,7 @@ public class TelaSelecionarCliente extends javax.swing.JFrame {
         setTitle("SELECIONAR CLIENTE");
 
         btnSelecionar.setText("Selecionar");
+        btnSelecionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSelecionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSelecionarActionPerformed(evt);
@@ -41,6 +42,7 @@ public class TelaSelecionarCliente extends javax.swing.JFrame {
         });
 
         btnVoltar.setText("Voltar");
+        btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
@@ -56,10 +58,15 @@ public class TelaSelecionarCliente extends javax.swing.JFrame {
             }
         ));
         jScrollPane4.setViewportView(tabelaClientes);
+        if (tabelaClientes.getColumnModel().getColumnCount() > 0) {
+            tabelaClientes.getColumnModel().getColumn(0).setPreferredWidth(50);
+            tabelaClientes.getColumnModel().getColumn(0).setMaxWidth(50);
+        }
 
         jLabel2.setText("Cliente");
 
         btnBuscar.setText("Buscar");
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
